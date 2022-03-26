@@ -7,7 +7,7 @@ public class JumpScript : MonoBehaviour
     private bool canJump = false;
     private bool isJumpPressed = false;
 
-    private GameObject aboveKnight = null;
+    private JumpScript aboveKnight = null;
 
     private Rigidbody rb;
     private Vector3 up = new Vector3(0, 1, 0);
@@ -43,7 +43,7 @@ public class JumpScript : MonoBehaviour
             if(isJumpPressed)
             {
                 //Debug.Log(name + " jumping");
-                jump(4.5f);
+                Jump(4.5f);
             }
         }
 
@@ -51,15 +51,15 @@ public class JumpScript : MonoBehaviour
 
     // Add vertical velocity to make the knight jump, jump height scale with the force -> jumps higher with more force
     // a force value of 4.5f is equal to one unit jump
-    public void jump(float force)
+    public void Jump(float force)
     {
         rb.velocity = up * force;
 
-        /*
+        
         if(aboveKnight != null)
         {
-            aboveKnight.GetComponent<JumpScript>().Jump(force);
-        }*/
+            aboveKnight.Jump(force);
+        }
     }
 
     // Something enter the hitbox under the knight -> he is standing on something / someone -> he can jump
@@ -79,9 +79,9 @@ public class JumpScript : MonoBehaviour
             // If it's greater, then, we have to keep the other knight reference to make him jump when this knight jump
             else
             {
-                aboveKnight = otherKnight.gameObject;
+                aboveKnight = otherKnight;
                 Debug.Log("aboveKnight of " + name + " is now " + aboveKnight.name);
-                //otherKnight.Jump(rb.velocity.y);
+                aboveKnight.Jump(rb.velocity.y);
             }
         }
 
