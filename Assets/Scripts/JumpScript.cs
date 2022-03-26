@@ -21,14 +21,11 @@ public class JumpScript : MonoBehaviour
         r,
         space
     }
-
     public keyCode keyBind;
 
     // bottom knight -> 1, top knight -> 5
     public int stackNumber;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,11 +35,9 @@ public class JumpScript : MonoBehaviour
     void Update()
     {
         if(canJump){
-            //Debug.Log(name + " can jump");
             isJumpPressed = Input.GetKeyDown(keyBind.ToString());
             if(isJumpPressed)
             {
-                //Debug.Log(name + " jumping");
                 Jump(4.5f);
             }
         }
@@ -55,45 +50,38 @@ public class JumpScript : MonoBehaviour
     {
         rb.velocity = up * force;
 
-        
+        // If another knight is above this knight, make that knight jump too 
         if(aboveKnight != null)
         {
             aboveKnight.Jump(force);
         }
     }
 
-    // Something enter the hitbox under the knight -> he is standing on something / someone -> he can jump
     void OnTriggerEnter(Collider other) 
     {
         JumpScript otherKnight = other.GetComponent<JumpScript>();
         if(otherKnight)
         {
-            //Debug.Log(name + " is triggeredEnter by " + otherKnight.name);
-            // if otherKnight.stackNumber is lesser than this knight's stackNumber then it mean that either this knight fell on another knight
+            // if otherKnight.stackNumber is lesser than this knight's stackNumber then it mean that either this knight fell on a knight
             // under him (after a jump) or that after this knight's jump the knight under him jumped too and now this knight can jump again
             if(otherKnight.stackNumber < stackNumber)
             {
                 canJump = true;
-                //Debug.Log(name + " can now jump! thx " + otherKnight.name);
             }
-            // If it's greater, then, we have to keep the other knight reference to make him jump when this knight jump
+            // If it's greater, it means that a knight above is now standing on top of this one
+            // we have to keep the new knight reference to make him jump when this knight jump
             else
             {
                 aboveKnight = otherKnight;
-                Debug.Log("aboveKnight of " + name + " is now " + aboveKnight.name);
                 aboveKnight.Jump(rb.velocity.y);
             }
         }
 
-        
+        // Now standing on smt with "Ground tag" -> can jump
         if(other.tag == "Ground")
         {
             canJump = true;
-            //Debug.Log(name + " can now jump! thx ground!");
         }
-
-        //Debug.Log(other.gameObject.name + " is now in contact with " + name);
-        
     }
 
     void OnTriggerExit(Collider other) 
@@ -101,25 +89,24 @@ public class JumpScript : MonoBehaviour
         JumpScript otherKnight = other.GetComponent<JumpScript>();
         if(otherKnight)
         {
+            // if otherKnight.stackNumber is lesser than this knight's stackNumber then it mean that this knight just jumped and
+            // doesn't have a support to jump from anymore
             if(otherKnight.stackNumber < stackNumber)
             {
                 canJump = false;
-                //Debug.Log(name + " can't jump without " + otherKnight.name);
             }
+            // the knight above jumped, delete it's stocked reference, so if this knight jumps before the one above fall back, 
+            // the one above don't jump a second time
             else
             {
                 aboveKnight = null;
-                Debug.Log("aboveKnight of " + name + " is now null");
             }
         }
         
-        // if bottom knight is no longer in contact with the ground -> can't jump
+        // knight is no longer in contact with the ground -> can't jump
         if(other.tag == "Ground")
         {
             canJump = false;
-            //Debug.Log(name + " can't jump if not on ground!");
         }
-
-        //Debug.Log(other.gameObject.name + " is no longer in contact with " + name);
     }
 }
