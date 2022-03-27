@@ -41,7 +41,6 @@ public class JumpScript : MonoBehaviour
                 Jump(4.5f);
             }
         }
-
     }
 
     // Add vertical velocity to make the knight jump, jump height scale with the force -> jumps higher with more force
@@ -50,7 +49,7 @@ public class JumpScript : MonoBehaviour
     {
         rb.velocity = up * force;
 
-        // If another knight is above this knight, make that knight jump too 
+        // If another knight is above this knight when this knight jumps, make that knight jumps too 
         if(aboveKnight != null)
         {
             aboveKnight.Jump(force);
