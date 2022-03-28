@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3362526884999163799, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: keyBind
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3362526884999163799, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: StackNumber
@@ -740,6 +740,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183896835018617179, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3362526884999163799, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
+      propertyPath: keyBind
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3362526884999163799, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}

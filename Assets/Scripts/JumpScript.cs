@@ -19,6 +19,10 @@ public class JumpScript : MonoBehaviour
         z,
         e,
         r,
+        d,
+        f,
+        j,
+        k,
         space
     }
     public keyCode keyBind;
@@ -61,7 +65,7 @@ public class JumpScript : MonoBehaviour
         JumpScript otherKnight = other.GetComponent<JumpScript>();
         if(otherKnight)
         {
-            // if otherKnight.stackNumber is lesser than this knight's stackNumber then it mean that either this knight fell on a knight
+            // if otherKnight.stackNumber is lower than this knight's stackNumber then it means that either this knight fell on a knight
             // under him (after a jump) or that after this knight's jump the knight under him jumped too and now this knight can jump again
             if(otherKnight.stackNumber < stackNumber)
             {
@@ -88,7 +92,7 @@ public class JumpScript : MonoBehaviour
         JumpScript otherKnight = other.GetComponent<JumpScript>();
         if(otherKnight)
         {
-            // if otherKnight.stackNumber is lesser than this knight's stackNumber then it mean that this knight just jumped and
+            // if otherKnight.stackNumber is lower than this knight's stackNumber then it mean that this knight just jumped and
             // doesn't have a support to jump from anymore
             if(otherKnight.stackNumber < stackNumber)
             {
