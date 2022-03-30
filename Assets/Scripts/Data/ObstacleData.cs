@@ -7,7 +7,7 @@ public class ObstacleData : ScriptableObject
 {
     public int minFloor;
     public int maxFloor;
-    public float chanceToAppear; // Higher is more likely
+    public float ProbabilityWeight; // Higher is more likely
     public float speed;
 
     public ObstacleType obstacleType;
