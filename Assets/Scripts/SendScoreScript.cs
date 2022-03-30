@@ -15,6 +15,9 @@ public class SendScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Add the myData of the current player in the Dreamlo
+        myBoard.AddScore(myData.playerName, myData.score);
+
         //The Coroutine is there to run in parallel with my code without blocking my program.
         StartCoroutine(routine: GetScores());
     }
