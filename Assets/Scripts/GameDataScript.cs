@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Create GameData")]
 
-public class GameData : ScriptableObject
+public class GameDataScript : ScriptableObject
 {
     public string PlayerName;
 
