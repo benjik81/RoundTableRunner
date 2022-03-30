@@ -5,7 +5,8 @@ using UnityEngine;
 public enum ObstacleType
 {
     Terrain,
-    Monster,
+    GroundObject,
+    FlyingObject,
     Bonus,
     Fog
 }
