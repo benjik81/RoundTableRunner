@@ -6,9 +6,9 @@ using UnityEngine;
 public class GameDataScript : ScriptableObject
 {
     //The data saved here is the player's name and score.
-    public string PlayerName;
+    public string playerName;
 
-    public int Score = 0;
+    public int score = 0;
 
     private void OnEnable()
     {
