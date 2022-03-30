@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fd4051d21298934c9bb9b1950554185, type: 3}
-  m_Name: Hill
+  m_Name: Rock
   m_EditorClassIdentifier: 
   minFloor: 0
   maxFloor: 0
-  ProbabilityWeight: 5
+  ProbabilityWeight: 10
   speed: 2
   obstacleType: 0

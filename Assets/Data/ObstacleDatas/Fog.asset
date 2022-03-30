@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minFloor: 0
   maxFloor: 0
-  chanceToAppear: 0
-  speed: 0
+  ProbabilityWeight: 2
+  speed: 2
+  obstacleType: 3

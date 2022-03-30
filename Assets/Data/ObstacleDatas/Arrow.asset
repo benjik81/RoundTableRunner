@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd4051d21298934c9bb9b1950554185, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  minFloor: 6
-  maxFloor: 9
-  chanceToAppear: 0
-  speed: 1.01
+  minFloor: 1
+  maxFloor: 5
+  ProbabilityWeight: 10
+  speed: 10
+  obstacleType: 1
