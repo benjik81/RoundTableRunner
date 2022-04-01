@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myData: {fileID: 11400000, guid: a91ef59c5a6e1eb46a3b863655a82511, type: 2}
-  Score: {fileID: 1743763515}
+  score: {fileID: 1743763515}
 --- !u!1 &1758657077
 GameObject:
   m_ObjectHideFlags: 0
