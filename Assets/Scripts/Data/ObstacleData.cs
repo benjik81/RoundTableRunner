@@ -9,6 +9,7 @@ public class ObstacleData : ScriptableObject
     public int maxFloor;
     public float ProbabilityWeight; // Higher is more likely
     public float speed;
+    public AudioClip sfx;
 
     public ObstacleType obstacleType;
 
