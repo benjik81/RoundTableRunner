@@ -16,4 +16,5 @@ MonoBehaviour:
   maxFloor: 0
   ProbabilityWeight: 5
   speed: 2
+  sfx: {fileID: 0}
   obstacleType: 0

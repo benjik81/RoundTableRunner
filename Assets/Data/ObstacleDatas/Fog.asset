@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minFloor: 0
   maxFloor: 0
-  ProbabilityWeight: 2
+  ProbabilityWeight: 7
   speed: 2
-  obstacleType: 3
+  sfx: {fileID: 0}
+  obstacleType: 4
