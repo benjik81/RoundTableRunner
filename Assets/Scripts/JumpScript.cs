@@ -32,7 +32,7 @@ public class JumpScript : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
     }
 
     // Update is called once per frame
