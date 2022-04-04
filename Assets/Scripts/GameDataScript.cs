@@ -1,0 +1,18 @@
+using UnityEngine;
+
+//allows to add a Unity option to create the GameData object
+[CreateAssetMenu(menuName = "Create GameData")]
+
+public class GameDataScript : ScriptableObject
+{
+    //The data saved here is the player's name and score.
+    public string playerName;
+
+    public int score = 0;
+
+    private void OnEnable()
+    {
+
+    }
+
+}
