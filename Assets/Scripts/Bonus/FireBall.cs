@@ -6,7 +6,7 @@ public class FireBall : Bonus
 {
     public FireBallData fireBallData;
     Vector3 shootingPos;
-    public override void Effect()
+    public override void Effect(PlayerScript player)
     {
         foreach (var item in GameManager.instance.knights)
         {

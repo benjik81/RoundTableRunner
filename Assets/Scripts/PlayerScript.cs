@@ -53,7 +53,7 @@ public class PlayerScript : MonoBehaviour
 
     public void GetBonus(Bonus bonus)
     {
-        bonus.Effect();
+        bonus.Effect(this);
     }
 
     public void GiveInvincibility(float duration)

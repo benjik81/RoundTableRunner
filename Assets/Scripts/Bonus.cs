@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bonus : Obstacle
 {
-    public virtual void Effect()
+    public virtual void Effect(PlayerScript player)
     {
 
     }

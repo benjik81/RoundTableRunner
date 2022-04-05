@@ -7,7 +7,7 @@ public class LOTL : Bonus
     public LOTLData lOTLData;
     float tempValue;
 
-    public override void Effect()
+    public override void Effect(PlayerScript player)
     {
         tempValue = GameManager.instance.scrollingMultiplier;
 
