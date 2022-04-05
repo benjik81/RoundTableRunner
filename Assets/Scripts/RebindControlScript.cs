@@ -15,6 +15,7 @@ public class RebindControlScript : MonoBehaviour
 
     public void Start()
     {
+        //Depending on the character, I check the saved key and display it in the placeholder.
         switch (playerControlZone.name)
         {
             case "Arthur_controls":
@@ -31,6 +32,9 @@ public class RebindControlScript : MonoBehaviour
                 break;
         }
     }
+
+    //This function is there to assign a new key to the character targeted by the player.
+    //I save the new button in my GameData.
     public void NewControlCommand()
     {
         SaveKeyCode();
@@ -56,6 +60,9 @@ public class RebindControlScript : MonoBehaviour
         }
     }
 
+    //This function allows to convert a String into a KeyCode.
+    //Necessary because I use an InputField, so it's TextMeshPro, so String
+    //I want a KeyCode to assign the keys.
     public KeyCode ConvertsStringToKeyCode(string value)
     {
 
@@ -71,12 +78,13 @@ public class RebindControlScript : MonoBehaviour
         return keyCodeConvert;
 
     }
-
+    //Small function to save the key to be assigned when applying the changes in the parameters
     public void SaveKeyCode()
     {
         savedKeyCode = ConvertsStringToKeyCode(player_control.text);
     }
 
+    //Function to update the display of the key.
     public void UpdateLetterControl()
     {
         switch (playerControlZone.name)
@@ -96,6 +104,7 @@ public class RebindControlScript : MonoBehaviour
         }
     }
 
+    //cleans up the text area to avoid double display due to the placeholder.
     public void ClearTextZone()
     {
         player_control.text = "";
