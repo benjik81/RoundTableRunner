@@ -7,5 +7,5 @@ public class LOTLData : ScriptableObject
 {
     public float duration;
     public float accelerationSpeed;
-    public Sprite auraSprite;
+    public GameObject aura;
 }
