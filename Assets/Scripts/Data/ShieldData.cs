@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldData : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu(fileName = "Shield", menuName = "ScriptableObject/BonusData/Shield")]
+public class ShieldData : ScriptableObject
+{
+    public float duration;
+    public GameObject aura;
 }
