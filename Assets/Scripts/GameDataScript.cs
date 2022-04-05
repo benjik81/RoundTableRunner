@@ -10,6 +10,11 @@ public class GameDataScript : ScriptableObject
 
     public int score = 0;
 
+    public KeyCode arthurKeyCode = KeyCode.K;
+    public KeyCode percevalKeyCode = KeyCode.J;
+    public KeyCode lancelotKeyCode = KeyCode.G;
+    public KeyCode gauvainKeyCode = KeyCode.F;
+
     private void OnEnable()
     {
 
