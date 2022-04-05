@@ -14424,11 +14424,11 @@ GameObject:
   - component: {fileID: 886371797529598971}
   m_Layer: 0
   m_Name: Fog
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3003239050701856256
 Transform:
   m_ObjectHideFlags: 0

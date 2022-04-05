@@ -85,6 +85,15 @@ public class JumpScript : MonoBehaviour
         {
             canJump = true;
         }
+
+        if(other.tag == "Obstacle")
+        {
+            // Standing on an obstacle -> can jump again
+            if(other.gameObject.transform.position.y < transform.position.y)
+            {
+                canJump = true;
+            }
+        }
     }
 
     void OnTriggerExit(Collider other) 
@@ -108,6 +117,12 @@ public class JumpScript : MonoBehaviour
         
         // knight is no longer in contact with the ground -> can't jump
         if(other.tag == "Ground")
+        {
+            canJump = false;
+        }
+
+        // Not standing on an obstacle anymore -> can't jump
+        if(other.tag == "Obstacle")
         {
             canJump = false;
         }
