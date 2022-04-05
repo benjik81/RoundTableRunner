@@ -31,9 +31,9 @@ public class RebindControlScript : MonoBehaviour
                 break;
         }
     }
-    public void newControl()
+    public void NewControlCommand()
     {
-        saveKeyCode();
+        SaveKeyCode();
         //updateLetterControl();
         switch (playerControlZone.name)
         {
@@ -56,7 +56,7 @@ public class RebindControlScript : MonoBehaviour
         }
     }
 
-    public KeyCode convertStringToKeyCode(string value)
+    public KeyCode ConvertsStringToKeyCode(string value)
     {
 
         if (value.Length != 0)
@@ -72,12 +72,12 @@ public class RebindControlScript : MonoBehaviour
 
     }
 
-    public void saveKeyCode()
+    public void SaveKeyCode()
     {
-        savedKeyCode = convertStringToKeyCode(player_control.text);
+        savedKeyCode = ConvertsStringToKeyCode(player_control.text);
     }
 
-    public void updateLetterControl()
+    public void UpdateLetterControl()
     {
         switch (playerControlZone.name)
         {
@@ -96,7 +96,7 @@ public class RebindControlScript : MonoBehaviour
         }
     }
 
-    public void clearTextZone()
+    public void ClearTextZone()
     {
         player_control.text = "";
     }
