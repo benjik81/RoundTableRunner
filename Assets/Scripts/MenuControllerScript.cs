@@ -24,16 +24,25 @@ public class MenuControllerScript : MonoBehaviour
     [SerializeField] private Slider BGMSlider = null;
     [SerializeField] private float defaultBGM = 1.0f;
 
-    [Header("Affichage")]
-    [SerializeField] private TMP_Text Arthur_letter = null;
-    [SerializeField] private TMP_Text Gauvain_letter = null;
-    [SerializeField] private TMP_Text Lancelot_letter = null;
-    [SerializeField] private TMP_Text Perceval_letter = null;
-
-    public void SetVolume(float volume)
+    public void Start()
     {
-        AudioListener.volume = volume;
-        volumeTextValue.text = volume.ToString("0.0");
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
+
+    public void LoadScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void SetVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        volumeTextValue.text = volumeSlider.value.ToString("0.0");
     }
 
     public void VolumeApply()
@@ -41,12 +50,24 @@ public class MenuControllerScript : MonoBehaviour
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
         StartCoroutine(ConfirmationBox());
     }
-
-    public IEnumerator ConfirmationBox()
+    
+    /*
+    public void SetBGM(float bgm)
     {
-        confirmationPrompt.SetActive(true);
-        yield return new WaitForSeconds(2);
-        confirmationPrompt.SetActive(false);
+        AudioListener.volume = bgm;
+        volumeTextValue.text = bgm.ToString("0.0");
+    }
+
+    public void BGMApply()
+    {
+        //PlayerPrefs.SetFloat("masterBGM", AudioListener.)
+        //StartCoroutine(ConfirmationBox());
+    }*/
+
+    public void ModificationApply()
+    {
+        VolumeApply();
+        SetName();
     }
 
     public void ResetButton()
@@ -62,28 +83,38 @@ public class MenuControllerScript : MonoBehaviour
         gameData.percevalKeyCode = KeyCode.E;
         gameData.lancelotKeyCode = KeyCode.Z;
         gameData.gauvainKeyCode = KeyCode.A;
-
-        Arthur_letter.text = KeyCode.R.ToString();
-        Gauvain_letter.text = KeyCode.A.ToString();
-        Perceval_letter.text = KeyCode.E.ToString();
-        Lancelot_letter.text = KeyCode.Z.ToString();
-
-
     }
 
-    public void backButton()
+    public void BackButton()
     {
         user_prenom.text = "";
     }
 
-    public void update_username()
+    public void Update_username()
     {
         user_prenom.text = gameData.playerName;
     }
 
-    //TENTATIVE DE SAUVEGARDE = ECHEC POUR LE MOMENT
+    public IEnumerator ConfirmationBox()
+    {
+        confirmationPrompt.SetActive(true);
+        yield return new WaitForSeconds(2);
+        confirmationPrompt.SetActive(false);
+    }
 
-    public static void savedPlayer()
+    public void SetName()
+    {
+        if (user_prenom.text != "")
+            gameData.playerName = user_prenom.text;
+
+        PlayerPrefs.SetString("Username", user_prenom.text);
+    }
+
+
+
+    //Systeme de sauvegarde
+
+    public static void SavedPlayer()
     {
         GameDataScript gameData = new GameDataScript();
 
@@ -118,11 +149,6 @@ public class MenuControllerScript : MonoBehaviour
             //Debug.LogError("Save file not found in " + path);
             return null;
         }
-
-
-
-
-
     }
 
 }
