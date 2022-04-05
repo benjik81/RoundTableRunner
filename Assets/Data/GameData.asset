@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: 
   score: 0
-  arthurKeyCode: 107
+  arthurKeyCode: 32
   percevalKeyCode: 106
   lancelotKeyCode: 103
   gauvainKeyCode: 102
+  volume: 1

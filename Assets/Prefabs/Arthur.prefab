@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: -8728220293714852422}
   - component: {fileID: 4285708546993919122}
   - component: {fileID: 6352546572633736864}
+  - component: {fileID: -8581969621453076059}
   m_Layer: 0
   m_Name: Arthur
   m_TagString: Player
@@ -133,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a913272d2b6803649be468a35466a474, type: 3}
+  m_Sprite: {fileID: 7537447239210248447, guid: f64d6027c86976241b38c92834011be5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,6 +189,25 @@ MonoBehaviour:
   invincibleDuration: 10
   throwingSwordDuration: 10
   throwingSwordDelay: 2
+--- !u!95 &-8581969621453076059
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085723266519296142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf732246a4e00d44a9fe4e9a49048ab5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4443635257598324435
 GameObject:
   m_ObjectHideFlags: 0

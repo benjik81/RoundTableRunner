@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8581969621453076059, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 735a82dfca1ba694eb9728ff587b6804, type: 2}
+    - target: {fileID: -2121987222379663378, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9100242129855324637, guid: 331afa28353dfdf4aabb0ecbc825ec87, type: 3}
     - target: {fileID: 4085723266519296142, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: m_Name
       value: Gauvain
