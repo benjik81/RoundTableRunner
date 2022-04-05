@@ -47,6 +47,7 @@ public class MenuControllerScript : MonoBehaviour
         //I save the player's preferences about the sound.
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
         StartCoroutine(ConfirmationBox());
+        gameData.volume = volumeSlider.value;
     }
     
     /*
