@@ -8,7 +8,7 @@ public class CollisionScript : MonoBehaviour
 
     void Start()
     {
-        playerScript.GetComponentInParent<PlayerScript>();
+        playerScript = GetComponentInParent<PlayerScript>();
     }
 
     void OnTriggerEnter(Collider other)
