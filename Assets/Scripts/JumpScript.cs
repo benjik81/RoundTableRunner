@@ -13,6 +13,7 @@ public class JumpScript : MonoBehaviour
     private Vector3 up = new Vector3(0, 1, 0);
 
     // Temporary way to bind which key to use with that knight
+    /*
     public enum keyCode
     {
         a, 
@@ -26,12 +27,15 @@ public class JumpScript : MonoBehaviour
         space
     }
     public keyCode keyBind;
+    */
+    public GameDataScript gameData;
 
     // bottom knight -> 1, top knight -> 5
     public int stackNumber;
 
     void Start()
     {
+        stackNumber = (int)transform.position.y;
         rb = GetComponentInParent<Rigidbody>();
     }
 
@@ -39,11 +43,34 @@ public class JumpScript : MonoBehaviour
     void Update()
     {
         if(canJump){
-            isJumpPressed = Input.GetKeyDown(keyBind.ToString());
+            //isJumpPressed = Input.GetKeyDown(keyBind.ToString());
+            isJumpPressed = GetGameDataKey();
             if(isJumpPressed)
             {
                 Jump(4.5f);
             }
+        }
+    }
+
+    private bool GetGameDataKey()
+    {
+        switch (transform.parent.name)
+        {
+            case "Arthur":
+                return Input.GetKeyDown(gameData.arthurKeyCode);
+                break;
+            case "Perceval":
+                return Input.GetKeyDown(gameData.percevalKeyCode);
+                break;
+            case "Lancelot":
+                return Input.GetKeyDown(gameData.lancelotKeyCode);
+                break;
+            case "Gauvain":
+                return Input.GetKeyDown(gameData.gauvainKeyCode);
+                break;
+            default:
+                Debug.Log("Who tf are you? " + name + "? That's pretty sus...");
+                return false;
         }
     }
 
