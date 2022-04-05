@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Buffs")]
+    BonusType currentBuff;
+
     [Header("Settings")]
     public bool isInvincible = false;
     private float invincibleDuration = 10f;
     private float invincibleTimer = 0f;
 
     private bool isThrowingSwords = false;
-    public float throwingSwordDuration = 10f;
-    public float throwingSwordDelay = 2f;
+    private float throwingSwordDuration = 10f;
+    private float throwingSwordDelay = 2f;
     private float throwingSwordTimer = 0f;
     private float throwOneSwordTimer = 0f;
 
@@ -53,7 +56,16 @@ public class PlayerScript : MonoBehaviour
 
     public void GetBonus(Bonus bonus)
     {
-        bonus.Effect(this);
+        if (bonus.bonusType != currentBuff)
+        {
+            bonus.Effect(this);
+        }
+        
+    }
+
+    public void RemoveBonus()
+    {
+        currentBuff = BonusType.None;
     }
 
     public void GiveInvincibility(float duration)
@@ -67,6 +79,7 @@ public class PlayerScript : MonoBehaviour
     {
         isInvincible = false;
         invincibleTimer = 0f;
+        RemoveBonus();
     }
 
     private void StopThrowingSwords()
