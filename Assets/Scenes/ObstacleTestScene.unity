@@ -405,7 +405,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 605003624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e214e64fc88727947b78db65a0f62160, type: 3}
+  m_Script: {fileID: 11500000, guid: 135b07a4a10b7344fb7a5b4f641c92f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &605003630
@@ -530,10 +530,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1074678066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f19bd36a24ba646bad421eee350764, type: 3}
+  m_Script: {fileID: 11500000, guid: d535f099523015b47a055ad26ab8b416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allObstacles: []
+  DistanceFlight: 3
+  Distance: 5
+  maxTimer: 5
 --- !u!54 &1074678072
 Rigidbody:
   m_ObjectHideFlags: 0

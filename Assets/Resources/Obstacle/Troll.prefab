@@ -72,7 +72,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4662031420346946234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4634ccba2dd154a88a3c58c3b608c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5554dbba3b5e1fd489a7b2777e0b18f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleData: {fileID: 11400000, guid: cafbe6e9c949d884fb6bdc3135463a4f, type: 2}

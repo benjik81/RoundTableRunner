@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class CollisionScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private PlayerScript playerScript;
+
     void Start()
     {
-        
+        playerScript.GetComponentInParent<PlayerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Obstacle")
+        {
+            Debug.Log("Touché!");
+            //Destroy(transform.parent.gameObject);
+            playerScript.CollisionObstacle();
+        }
         
+        if(other.tag == "Bonus")
+        {
+            playerScript.GetBonus(other.gameObject);
+        }
     }
 }
