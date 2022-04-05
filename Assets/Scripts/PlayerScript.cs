@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [Header("Settings")]
-    private bool isInvincible = false;
-    public float invincibleDuration = 10f;
+    public bool isInvincible = false;
+    private float invincibleDuration = 10f;
     private float invincibleTimer = 0f;
 
     private bool isThrowingSwords = false;
@@ -51,9 +51,16 @@ public class PlayerScript : MonoBehaviour
         //Instantiate Sword Prefab or something
     }
 
-    public void GetBonus(GameObject bonus)
+    public void GetBonus(Bonus bonus)
     {
-        //To do
+        bonus.Effect();
+    }
+
+    public void GiveInvincibility(float duration)
+    {
+        invincibleDuration = duration;
+        isInvincible = true;
+        invincibleTimer = 0f;
     }
 
     private void InvincibilityLost()

@@ -8,21 +8,31 @@ public class CollisionScript : MonoBehaviour
 
     void Start()
     {
-        playerScript.GetComponentInParent<PlayerScript>();
+        playerScript = GetComponentInParent<PlayerScript>();
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Obstacle")
         {
-            Debug.Log("Touché!");
-            //Destroy(transform.parent.gameObject);
-            playerScript.CollisionObstacle();
+            if (other.transform.root.TryGetComponent(out Obstacle obstacle))
+            {
+                if (obstacle.obstacleData.obstacleType == ObstacleType.Bonus)
+                {
+                    playerScript.GetBonus(obstacle as Bonus);
+                    Debug.Log("Bonunus");
+                }
+                else
+                {
+                    Debug.Log("Touché!");
+                    //Destroy(transform.parent.gameObject);
+                    playerScript.CollisionObstacle();
+                }
+            }
+            
         }
         
-        if(other.tag == "Bonus")
-        {
-            playerScript.GetBonus(other.gameObject);
-        }
+        
     }
 }
