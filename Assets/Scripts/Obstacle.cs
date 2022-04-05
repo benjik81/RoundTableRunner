@@ -14,4 +14,8 @@ public class Obstacle : MonoBehaviour
         transform.Translate(new Vector3(0, 0, 1) * -obstacleData.speed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
     }
 
+    public virtual void KillObstacle()
+    {
+        Destroy(this.gameObject);
+    }
 }
