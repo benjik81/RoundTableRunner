@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordData : MonoBehaviour
+[CreateAssetMenu(fileName = "Sword", menuName = "ScriptableObject/BonusData/Sword")]
+public class SwordData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float duration;
+    public Vector3 offSet;
+    public float projSpeed;
+    public int armor;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float delay;
+    public GameObject swordPrefab;
 }
