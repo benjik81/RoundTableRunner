@@ -30,6 +30,6 @@ public class LOTL : Bonus
         }
 
         GameManager.instance.scrollingMultiplier = tempValue;
-
+        Destroy(this.gameObject);
     }
 }
