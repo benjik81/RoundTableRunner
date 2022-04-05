@@ -16,7 +16,13 @@ public class CollisionScript : MonoBehaviour
         if(other.tag == "Obstacle")
         {
             Debug.Log("Touché!");
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
+            playerScript.CollisionObstacle();
+        }
+        
+        if(other.tag == "Bonus")
+        {
+            playerScript.GetBonus(other.gameObject);
         }
     }
 }
