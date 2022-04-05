@@ -68,11 +68,16 @@ public class Spawner : MonoBehaviour
                 temp.transform.position = new Vector3(transform.position.x, randomFloor, transform.position.z);
             }
         }
+        
         timer += Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {
-        overlap++;
+        if (other.gameObject.tag == "Obstacle")
+        {
+            overlap++;
+        }
+        
 
     }
 
