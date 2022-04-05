@@ -23,14 +23,9 @@ public class MenuControllerScript : MonoBehaviour
     [SerializeField] private TMP_Text volumeBGMValue = null;
     [SerializeField] private Slider BGMSlider = null;
     [SerializeField] private float defaultBGM = 1.0f;
-
-    public void Start()
-    {
-    }
-
+    
     public void ExitGame()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 
@@ -41,12 +36,15 @@ public class MenuControllerScript : MonoBehaviour
 
     public void SetVolume()
     {
+        //Here, I update the text of the slider according to the value of the bar.
+        //And I update the sound volume of the game.
         AudioListener.volume = volumeSlider.value;
         volumeTextValue.text = volumeSlider.value.ToString("0.0");
     }
 
     public void VolumeApply()
     {
+        //I save the player's preferences about the sound.
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
         StartCoroutine(ConfirmationBox());
     }
@@ -70,6 +68,7 @@ public class MenuControllerScript : MonoBehaviour
         SetName();
     }
 
+    //We reset the gameData and the audio.
     public void ResetButton()
     {
 
@@ -85,16 +84,19 @@ public class MenuControllerScript : MonoBehaviour
         gameData.gauvainKeyCode = KeyCode.A;
     }
 
+    //When we make a "return", I erase what the player has written
     public void BackButton()
     {
         user_prenom.text = "";
     }
 
+    //We update the display of the nickname in the parameters
     public void Update_username()
     {
         user_prenom.text = gameData.playerName;
     }
 
+    //Displays a "loading" box when the new settings are applied.
     public IEnumerator ConfirmationBox()
     {
         confirmationPrompt.SetActive(true);
@@ -102,6 +104,7 @@ public class MenuControllerScript : MonoBehaviour
         confirmationPrompt.SetActive(false);
     }
 
+    //The player's name is updated according to what he has entered.
     public void SetName()
     {
         if (user_prenom.text != "")
