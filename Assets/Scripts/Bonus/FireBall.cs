@@ -7,6 +7,7 @@ public class FireBall : Bonus
     private FireBallData fireBallData;
     Vector3 shootingPos;
 
+
     private void Start()
     {
         fireBallData = bonusData as FireBallData;
@@ -24,7 +25,14 @@ public class FireBall : Bonus
             tempProj.SetProjectile(fireBallData.projSpeed, fireBallData.armor);
         }
 
-        Destroy(this.gameObject);
         
+        
+    }
+
+    private IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("finished");
+        ClearBonus();
     }
 }
