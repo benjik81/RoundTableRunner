@@ -21,7 +21,7 @@ public class MenuControllerScript : MonoBehaviour
 
     [Header("BGM settings")]
     [SerializeField] private TMP_Text volumeBGMValue = null;
-    [SerializeField] private Slider BGMSlider = null;
+    [SerializeField] private Slider bgmSlider = null;
     [SerializeField] private float defaultBGM = 1.0f;
     
     public void ExitGame()
@@ -42,6 +42,11 @@ public class MenuControllerScript : MonoBehaviour
         volumeTextValue.text = volumeSlider.value.ToString("0.0");
     }
 
+    public void SetMusic()
+    {
+        volumeBGMValue.text = bgmSlider.value.ToString("0.0");
+    }
+
     public void VolumeApply()
     {
         //I save the player's preferences about the sound.
@@ -49,23 +54,18 @@ public class MenuControllerScript : MonoBehaviour
         StartCoroutine(ConfirmationBox());
         gameData.volume = volumeSlider.value;
     }
-    
-    /*
-    public void SetBGM(float bgm)
-    {
-        AudioListener.volume = bgm;
-        volumeTextValue.text = bgm.ToString("0.0");
-    }
 
-    public void BGMApply()
+    public void MusicApply()
     {
-        //PlayerPrefs.SetFloat("masterBGM", AudioListener.)
-        //StartCoroutine(ConfirmationBox());
-    }*/
+        PlayerPrefs.SetFloat("masterMusic", bgmSlider.value);
+        StartCoroutine(ConfirmationBox());
+        gameData.music = bgmSlider.value;
+    }
 
     public void ModificationApply()
     {
         VolumeApply();
+        MusicApply();
         SetName();
     }
 
@@ -78,17 +78,29 @@ public class MenuControllerScript : MonoBehaviour
         volumeTextValue.text = defaultVolume.ToString();
         VolumeApply();
 
+        bgmSlider.value = defaultBGM;
+        volumeBGMValue.text = defaultBGM.ToString();
+        MusicApply();
+
         gameData.playerName = "";
-        gameData.arthurKeyCode = KeyCode.R;
-        gameData.percevalKeyCode = KeyCode.E;
-        gameData.lancelotKeyCode = KeyCode.Z;
-        gameData.gauvainKeyCode = KeyCode.A;
+        gameData.arthurKeyCode = KeyCode.K;
+        gameData.percevalKeyCode = KeyCode.J;
+        gameData.lancelotKeyCode = KeyCode.G;
+        gameData.gauvainKeyCode = KeyCode.F;
     }
 
     //When we make a "return", I erase what the player has written
     public void BackButton()
     {
         user_prenom.text = "";
+    }
+
+    public void LoadVolumeAndMusic()
+    {
+        volumeSlider.value = gameData.volume;
+        volumeTextValue.text = gameData.volume.ToString();
+        bgmSlider.value = gameData.music;
+        volumeBGMValue.text = gameData.music.ToString();
     }
 
     //We update the display of the nickname in the parameters
