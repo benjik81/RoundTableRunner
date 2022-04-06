@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    public PlayerScript[] knights;
+    public GameDataScript gameData;
+    public List<PlayerScript> knights;
 
 
     public float scrollingMultiplier;
