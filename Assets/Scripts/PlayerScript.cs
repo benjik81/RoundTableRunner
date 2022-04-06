@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [Header("Buffs")]
-    Bonus currentBuff;
+    public Bonus currentBuff;
 
     [Header("Settings")]
     public bool isInvincible = false;
@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(!isInvincible)
         {
+            GameManager.instance.knights.Remove(this);
             Destroy(gameObject);
         }
         else
@@ -56,7 +57,14 @@ public class PlayerScript : MonoBehaviour
 
     public void GetBonus(Bonus bonus)
     {
-        currentBuff.ClearBonus();
+        if (currentBuff != bonus && currentBuff!= null)
+        {
+            currentBuff.ClearBonus();
+            Debug.Log("Clearing bonus");
+        }
+
+        bonus.PlaySFX();
+
         currentBuff = bonus;
         bonus.Effect(this);
         
@@ -71,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         invincibleTimer = 0f;
     }
 
-    private void InvincibilityLost()
+    public void InvincibilityLost()
     {
         isInvincible = false;
         invincibleTimer = 0f;
