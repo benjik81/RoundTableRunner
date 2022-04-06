@@ -38,26 +38,29 @@ public class RebindControlScript : MonoBehaviour
     public void NewControlCommand()
     {
         SaveKeyCode();
-        //updateLetterControl();
-        switch (playerControlZone.name)
+        if(savedKeyCode != KeyCode.None)
         {
-            case "Arthur_controls":
-                gameData.arthurKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Arthur_key", savedKeyCode.ToString());
-                break;
-            case "Perceval_controls":
-                gameData.percevalKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Perceval_key", savedKeyCode.ToString());
-                break;
-            case "Lancelot_controls":
-                gameData.lancelotKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Lancelot_key", savedKeyCode.ToString());
-                break;
-            case "Gauvain_controls":
-                gameData.gauvainKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Gauvain_key", savedKeyCode.ToString());
-                break;
+            switch (playerControlZone.name)
+            {
+                case "Arthur_controls":
+                    gameData.arthurKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Arthur_key", savedKeyCode.ToString());
+                    break;
+                case "Perceval_controls":
+                    gameData.percevalKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Perceval_key", savedKeyCode.ToString());
+                    break;
+                case "Lancelot_controls":
+                    gameData.lancelotKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Lancelot_key", savedKeyCode.ToString());
+                    break;
+                case "Gauvain_controls":
+                    gameData.gauvainKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Gauvain_key", savedKeyCode.ToString());
+                    break;
+            }
         }
+        
     }
 
     //This function allows to convert a String into a KeyCode.
