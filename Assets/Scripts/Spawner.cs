@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public List<GameObject> allObstacles = new List<GameObject>();
     IntRange[] obstacleProbability;
+    [SerializeField]
     int overlap; // Number of colliders in the collider (some obstacle have multiple colliders)
     float maxDistance; //How far are obstacle detected in the same floor (used in code limit)
     public float DistanceFlight;//How far are obstacle detected in the same floor (for flying object only)
@@ -15,12 +16,17 @@ public class Spawner : MonoBehaviour
     float timer;
     public float maxTimer;
 
+    [SerializeField]
+    List<Obstacle> insideObstacle;
+
     void Start()
     {
         //Important note: place your obstacles
         //in the folder called "Resources" like this "Assets/Resources/Obstacle"
         Object[] subListObjects = Resources.LoadAll("Obstacle", typeof(GameObject));
         obstacleProbability = new IntRange[subListObjects.Length];
+
+        insideObstacle = new List<Obstacle>();
 
         foreach (GameObject subListObject in subListObjects)
         {
@@ -40,6 +46,16 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
+
+        foreach (var item in insideObstacle)
+        {
+            if (!item)
+            {
+                overlap = 0;
+                insideObstacle.Remove(item);
+            }
+            
+        }
         
         if (CanSpawn() && timer>maxTimer) // Check if there is anything in the spawner
         {
@@ -75,7 +91,7 @@ public class Spawner : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            overlap++;
+            insideObstacle.Add(other.GetComponent<Obstacle>());
         }
         
 
@@ -83,7 +99,10 @@ public class Spawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        overlap--;
+        if (other.gameObject.tag == "Obstacle")
+        {
+            insideObstacle.Remove(other.GetComponent<Obstacle>());
+        }
     }
 
     bool CanSpawn()
