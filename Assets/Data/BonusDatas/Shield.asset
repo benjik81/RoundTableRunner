@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1965b26094273364b8c9d2de1a867bc1, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  duration: 10
-  aura: {fileID: 0}
+  aura: {fileID: 2728077100050709326, guid: 72c7862958b37a94c92fc03fa6ca5f06, type: 3}
+  auraOffSet: {x: 0, y: 0.5, z: -0.45}
+  duration: 1.7

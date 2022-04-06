@@ -14,8 +14,19 @@ public class Shield : Bonus
     {
         base.Effect(player);
         player.GiveInvincibility(shieldData.duration);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        StartCoroutine(Countdown());
     }
 
-    
+    private IEnumerator Countdown()
+    {
+        while (knight.isInvincible)
+        {
+            yield return null;
+        }
+        Debug.Log("finished");
+        ClearBonus();
+    }
+
+
 }
