@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameDataScript gameData;
     public List<PlayerScript> knights;
 
+    
+    public Bonus lastBuff;
 
     public float scrollingMultiplier;
 
@@ -28,4 +30,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 }
