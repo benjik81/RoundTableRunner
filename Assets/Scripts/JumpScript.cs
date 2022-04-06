@@ -35,6 +35,24 @@ public class JumpScript : MonoBehaviour
     // bottom knight -> 1, top knight -> 5
     public int stackNumber;
 
+    private CharacterController _character_controller;
+
+    private void Awake()
+    {
+        _character_controller = GetComponent<CharacterController>();
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     void Start()
     {
         stackNumber = (int)transform.position.y;
