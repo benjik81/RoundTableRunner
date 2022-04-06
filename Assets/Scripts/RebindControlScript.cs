@@ -38,26 +38,38 @@ public class RebindControlScript : MonoBehaviour
     public void NewControlCommand()
     {
         SaveKeyCode();
-        //updateLetterControl();
-        switch (playerControlZone.name)
+        if(savedKeyCode != KeyCode.None)
         {
-            case "Arthur_controls":
-                gameData.arthurKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Arthur_key", savedKeyCode.ToString());
-                break;
-            case "Perceval_controls":
-                gameData.percevalKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Perceval_key", savedKeyCode.ToString());
-                break;
-            case "Lancelot_controls":
-                gameData.lancelotKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Lancelot_key", savedKeyCode.ToString());
-                break;
-            case "Gauvain_controls":
-                gameData.gauvainKeyCode = savedKeyCode;
-                //PlayerPrefs.SetString("Gauvain_key", savedKeyCode.ToString());
-                break;
+            switch (playerControlZone.name)
+            {
+                case "Arthur_controls":
+                    if(KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.percevalKeyCode, gameData.gauvainKeyCode))
+                        gameData.arthurKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Arthur_key", savedKeyCode.ToString());
+                    break;
+                case "Perceval_controls":
+                    if (KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.arthurKeyCode, gameData.gauvainKeyCode))
+                        gameData.percevalKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Perceval_key", savedKeyCode.ToString());
+                    break;
+                case "Lancelot_controls":
+                    if (KeyCodeNotAssign(savedKeyCode, gameData.arthurKeyCode, gameData.percevalKeyCode, gameData.gauvainKeyCode))
+                        gameData.lancelotKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Lancelot_key", savedKeyCode.ToString());
+                    break;
+                case "Gauvain_controls":
+                    if (KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.percevalKeyCode, gameData.arthurKeyCode))
+                        gameData.gauvainKeyCode = savedKeyCode;
+                    //PlayerPrefs.SetString("Gauvain_key", savedKeyCode.ToString());
+                    break;
+            }
         }
+        
+    }
+
+    private bool KeyCodeNotAssign(KeyCode k1, KeyCode k2, KeyCode k3, KeyCode k4)
+    {
+        return k1 != k2 && k1 != k3 && k1 != k4;
     }
 
     //This function allows to convert a String into a KeyCode.
