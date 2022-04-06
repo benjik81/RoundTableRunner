@@ -57,16 +57,21 @@ public class PlayerScript : MonoBehaviour
 
     public void GetBonus(Bonus bonus)
     {
-        if (currentBuff != bonus && currentBuff!= null)
+        if (bonus != GameManager.instance.lastBuff)
         {
-            currentBuff.ClearBonus();
-            Debug.Log("Clearing bonus");
+            GameManager.instance.lastBuff = bonus;
+            if (currentBuff != bonus && currentBuff != null)
+            {
+                currentBuff.ClearBonus();
+                Debug.Log("Clearing bonus");
+            }
+
+            bonus.PlaySFX();
+
+            currentBuff = bonus;
+            bonus.Effect(this);
         }
-
-        bonus.PlaySFX();
-
-        currentBuff = bonus;
-        bonus.Effect(this);
+        
         
     }
 
