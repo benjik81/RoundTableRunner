@@ -30,6 +30,8 @@ public class JumpScript : MonoBehaviour
     }
     public keyCode keyBind;
     */
+    private int groundNumber = 0;
+
     public GameDataScript gameData;
 
     // bottom knight -> 1, top knight -> 5
@@ -141,6 +143,7 @@ public class JumpScript : MonoBehaviour
         if(other.tag == "Ground")
         {
             SetAnim(2f);
+            groundNumber += 1;
             canJump = true;
         }
 
@@ -177,7 +180,11 @@ public class JumpScript : MonoBehaviour
         // knight is no longer in contact with the ground -> can't jump
         if(other.tag == "Ground")
         {
-            canJump = false;
+            groundNumber -= 1;
+            if(groundNumber == 0)
+            {
+                canJump = false;
+            }
         }
 
         // Not standing on an obstacle anymore -> can't jump
