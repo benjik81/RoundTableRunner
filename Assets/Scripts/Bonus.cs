@@ -9,4 +9,9 @@ public class Bonus : Obstacle
     {
 
     }
+
+    public virtual void ClearBonus()
+    {
+        Destroy(this.gameObject);
+    }
 }
