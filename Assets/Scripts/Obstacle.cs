@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-
     public ObstacleData obstacleData;
 
+
+    
     public virtual void Update()
     {
 
@@ -17,5 +18,13 @@ public class Obstacle : MonoBehaviour
     public virtual void KillObstacle()
     {
         Destroy(this.gameObject);
+    }
+
+    public virtual void PlaySFX()
+    {
+        AudioSource audio = gameObject.AddComponent<AudioSource>();
+        audio.clip = obstacleData.sfx;
+        audio.volume = GameManager.instance.gameData.volume / 100;
+        audio.Play();
     }
 }
