@@ -17,12 +17,12 @@ public class MenuControllerScript : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private GameObject confirmationPrompt = null;
-    [SerializeField] private float defaultVolume = 1.0f;
+    [SerializeField] private int defaultVolume = 100;
 
     [Header("BGM settings")]
     [SerializeField] private TMP_Text volumeBGMValue = null;
     [SerializeField] private Slider bgmSlider = null;
-    [SerializeField] private float defaultBGM = 1.0f;
+    [SerializeField] private int defaultBGM = 100;
     
     public void ExitGame()
     {
@@ -39,12 +39,12 @@ public class MenuControllerScript : MonoBehaviour
         //Here, I update the text of the slider according to the value of the bar.
         //And I update the sound volume of the game.
         AudioListener.volume = volumeSlider.value;
-        volumeTextValue.text = volumeSlider.value.ToString("0.0");
+        volumeTextValue.text = volumeSlider.value.ToString();
     }
 
     public void SetMusic()
     {
-        volumeBGMValue.text = bgmSlider.value.ToString("0.0");
+        volumeBGMValue.text = bgmSlider.value.ToString();
     }
 
     public void VolumeApply()
@@ -52,14 +52,14 @@ public class MenuControllerScript : MonoBehaviour
         //I save the player's preferences about the sound.
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
         StartCoroutine(ConfirmationBox());
-        gameData.volume = volumeSlider.value;
+        gameData.volume = (int)volumeSlider.value;
     }
 
     public void MusicApply()
     {
         PlayerPrefs.SetFloat("masterMusic", bgmSlider.value);
         StartCoroutine(ConfirmationBox());
-        gameData.music = bgmSlider.value;
+        gameData.music = (int)bgmSlider.value;
     }
 
     public void ModificationApply()

@@ -18,4 +18,6 @@ MonoBehaviour:
   percevalKeyCode: 122
   lancelotKeyCode: 101
   gauvainKeyCode: 114
-  volume: 1
+  volume: 100
+  music: 100
+  highscore: 0
