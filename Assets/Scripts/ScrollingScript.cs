@@ -22,7 +22,7 @@ public class ScrollingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xValueTriggerSpawn = ((transform.localScale.x - 20f)/2);
+        xValueTriggerSpawn = ((transform.localScale.z - 20f)/2);
 
         // TO DO
         // Make a GameManager to apply new scrollSpeed when we loses knights
@@ -37,7 +37,8 @@ public class ScrollingScript : MonoBehaviour
 
         if(!nextBGSpawned)
         {
-            if(transform.position.x <= xValueTriggerSpawn)
+            //if(transform.position.x <= xValueTriggerSpawn)
+            if(transform.position.z <= xValueTriggerSpawn)
             {
                 nextBGSpawned = true; // each background only spawn the one following it
                 SpawnNextBG();
@@ -45,7 +46,8 @@ public class ScrollingScript : MonoBehaviour
         }
 
         // Background far enough, Destroy it
-        if(transform.position.x < destroyX /*+ (transform.localScale.x / 4)*/)
+        //if(transform.position.x < destroyX /*+ (transform.localScale.x / 4)*/)
+        if(transform.position.z < destroyX)
         {
             Destroy(gameObject);
         }
@@ -53,8 +55,10 @@ public class ScrollingScript : MonoBehaviour
 
     private void Scroll()
     {
-        float newX = transform.position.x - (scrollSpeed * Time.deltaTime);
-        transform.position = new Vector3(newX, 3.5f, 1);
+        //float newX = transform.position.x - (scrollSpeed * Time.deltaTime);
+        float newX = transform.position.z - (scrollSpeed * Time.deltaTime);
+        //transform.position = new Vector3(newX, 3.5f, 1);
+        transform.position = new Vector3(0, 3.5f, newX);
     }
 
     // Randomly choose the next background
@@ -81,6 +85,6 @@ public class ScrollingScript : MonoBehaviour
 
     private void SpawnNextBG()
     {
-        Instantiate(nextBG, new Vector3(spawnX, 3.5f, 1), Quaternion.Euler(new Vector3(0, 0, 0)));
+        Instantiate(nextBG, new Vector3(0, 3.5f, spawnX), Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 }
