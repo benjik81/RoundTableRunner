@@ -126,45 +126,4 @@ public class MenuControllerScript : MonoBehaviour
         PlayerPrefs.SetString("Username", user_prenom.text);
     }
 
-
-
-    //Systeme de sauvegarde
-
-    public static void SavedPlayer()
-    {
-        GameDataScript gameData = new GameDataScript();
-
-        string path = Application.persistentDataPath + "/player.fun";
-
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        BinaryFormatter formatter = new BinaryFormatter();
-
-        formatter.Serialize(stream, gameData);
-
-        stream.Close();
-    }
-
-    private GameDataScript LoadPlayer()
-    {
-        string path = Application.persistentDataPath + "/player.fun";
-
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            GameDataScript gameData = formatter.Deserialize(stream) as GameDataScript;
-
-            stream.Close();
-
-            return gameData;
-        }
-        else
-        {
-            //Debug.LogError("Save file not found in " + path);
-            return null;
-        }
-    }
-
 }
