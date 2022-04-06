@@ -31,7 +31,7 @@ public static class SaveSystem
         }
         else
         {
-            return new Save("",1f, 1f, 0, 68, 70, 74, 75);
+            return new Save("", 100, 100, 0, 68, 70, 74, 75);
         }
 
     }
@@ -42,7 +42,7 @@ public static class SaveSystem
 public class Save
 {
     public string name;
-    public float bgm, fx;
+    public int bgm, fx;
     public int score;
 
     public int[] KeyCodes;
@@ -59,7 +59,7 @@ public class Save
         KeyCodes[3] = (int)gds.gauvainKeyCode;
     }
 
-    public Save(string n, float b, float f, int s, int a, int p, int l, int g)
+    public Save(string n, int b, int f, int s, int a, int p, int l, int g)
     {
         name = n;
         bgm = b;
