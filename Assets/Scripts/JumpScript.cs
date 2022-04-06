@@ -95,7 +95,7 @@ public class JumpScript : MonoBehaviour
     private void SetAnim(float numAnim)
     {
         anim.SetFloat("Blend", numAnim);
-        Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+        //Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
     }
 
     void OnTriggerEnter(Collider other) 
