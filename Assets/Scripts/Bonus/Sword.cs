@@ -44,7 +44,7 @@ public class Sword : Bonus
 
             if (maxTimer < 0)
             {
-                Destroy(this.gameObject);
+                ClearBonus();
             }
             else
             {
