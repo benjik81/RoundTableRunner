@@ -82,7 +82,7 @@ public class MenuControllerScript : MonoBehaviour
         volumeBGMValue.text = defaultBGM.ToString();
         MusicApply();
 
-        gameData.playerName = "";
+        
         gameData.arthurKeyCode = KeyCode.K;
         gameData.percevalKeyCode = KeyCode.J;
         gameData.lancelotKeyCode = KeyCode.G;
