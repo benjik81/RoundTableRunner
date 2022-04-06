@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JumpScript : MonoBehaviour
 {
+    private Animator anim;
+
     private bool canJump = false;
     private bool isJumpPressed = false;
 
@@ -37,6 +39,7 @@ public class JumpScript : MonoBehaviour
     {
         stackNumber = (int)transform.position.y;
         rb = GetComponentInParent<Rigidbody>();
+        anim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class JumpScript : MonoBehaviour
             isJumpPressed = GetGameDataKey();
             if(isJumpPressed)
             {
+                SetAnim(1f); //Anim Jump
                 Jump(4.5f);
             }
         }
@@ -87,6 +91,13 @@ public class JumpScript : MonoBehaviour
         }
     }
 
+    // 0->Idle / 1->Jump / 2->Running / 3->Hit
+    private void SetAnim(float numAnim)
+    {
+        anim.SetFloat("Blend", numAnim);
+        Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+    }
+
     void OnTriggerEnter(Collider other) 
     {
         JumpScript otherKnight = other.GetComponent<JumpScript>();
@@ -96,6 +107,7 @@ public class JumpScript : MonoBehaviour
             // under him (after a jump) or that after this knight's jump the knight under him jumped too and now this knight can jump again
             if(otherKnight.stackNumber < stackNumber)
             {
+                SetAnim(0f);
                 canJump = true;
             }
             // If it's greater, it means that a knight above is now standing on top of this one
@@ -110,6 +122,7 @@ public class JumpScript : MonoBehaviour
         // Now standing on smt with "Ground tag" -> can jump
         if(other.tag == "Ground")
         {
+            SetAnim(2f);
             canJump = true;
         }
 
@@ -118,6 +131,7 @@ public class JumpScript : MonoBehaviour
             // Standing on an obstacle -> can jump again
             if(other.gameObject.transform.position.y < transform.position.y)
             {
+                SetAnim(2f);
                 canJump = true;
             }
         }
