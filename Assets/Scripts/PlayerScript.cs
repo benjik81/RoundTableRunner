@@ -35,6 +35,10 @@ public class PlayerScript : MonoBehaviour
         if(!isInvincible)
         {
             GameManager.instance.knights.Remove(this);
+            if (currentBuff)
+            {
+                currentBuff.ClearBonus();
+            }
             Destroy(gameObject);
         }
         else
@@ -57,7 +61,7 @@ public class PlayerScript : MonoBehaviour
 
     public void GetBonus(Bonus bonus)
     {
-        if (bonus != GameManager.instance.lastBuff)
+        if (bonus != GameManager.instance.lastBuff || !GameManager.instance.lastBuff)
         {
             GameManager.instance.lastBuff = bonus;
             if (currentBuff != bonus && currentBuff != null)

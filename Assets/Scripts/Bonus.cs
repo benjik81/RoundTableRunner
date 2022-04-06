@@ -34,6 +34,7 @@ public class Bonus : Obstacle
 
     public virtual void ClearBonus()
     {
+        GameManager.instance.lastBuff = null;
         Destroy(aura);
         Destroy(this.gameObject);
     }
