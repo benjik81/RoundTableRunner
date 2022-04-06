@@ -52,14 +52,14 @@ public class MenuControllerScript : MonoBehaviour
         //I save the player's preferences about the sound.
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
         StartCoroutine(ConfirmationBox());
-        gameData.volume = volumeSlider.value;
+        gameData.volume = (int)volumeSlider.value;
     }
 
     public void MusicApply()
     {
         PlayerPrefs.SetFloat("masterMusic", bgmSlider.value);
         StartCoroutine(ConfirmationBox());
-        gameData.music = bgmSlider.value;
+        gameData.music = (int)bgmSlider.value;
     }
 
     public void ModificationApply()
