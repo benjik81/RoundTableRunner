@@ -40,27 +40,28 @@ public class RebindControlScript : MonoBehaviour
         SaveKeyCode();
         if(savedKeyCode != KeyCode.None)
         {
+            KeyCode k1 = gameData.arthurKeyCode;
+            KeyCode k2 = gameData.percevalKeyCode;
+            KeyCode k3 = gameData.lancelotKeyCode;
+            KeyCode k4 = gameData.gauvainKeyCode;
+            Debug.Log(k1 + " " + k2 + k3 + k4);
             switch (playerControlZone.name)
             {
                 case "Arthur_controls":
-                    if(KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.percevalKeyCode, gameData.gauvainKeyCode))
+                    if (KeyCodeNotAssign(savedKeyCode, k2, k3, k4))
                         gameData.arthurKeyCode = savedKeyCode;
-                    //PlayerPrefs.SetString("Arthur_key", savedKeyCode.ToString());
                     break;
                 case "Perceval_controls":
-                    if (KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.arthurKeyCode, gameData.gauvainKeyCode))
+                    if (KeyCodeNotAssign(savedKeyCode, k1, k3, k4))
                         gameData.percevalKeyCode = savedKeyCode;
-                    //PlayerPrefs.SetString("Perceval_key", savedKeyCode.ToString());
                     break;
                 case "Lancelot_controls":
-                    if (KeyCodeNotAssign(savedKeyCode, gameData.arthurKeyCode, gameData.percevalKeyCode, gameData.gauvainKeyCode))
+                    if (KeyCodeNotAssign(savedKeyCode, k1, k2, k4))
                         gameData.lancelotKeyCode = savedKeyCode;
-                    //PlayerPrefs.SetString("Lancelot_key", savedKeyCode.ToString());
                     break;
                 case "Gauvain_controls":
-                    if (KeyCodeNotAssign(savedKeyCode, gameData.lancelotKeyCode, gameData.percevalKeyCode, gameData.arthurKeyCode))
+                    if (KeyCodeNotAssign(savedKeyCode, k1, k2, k3))
                         gameData.gauvainKeyCode = savedKeyCode;
-                    //PlayerPrefs.SetString("Gauvain_key", savedKeyCode.ToString());
                     break;
             }
         }
