@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4808198592221649905}
   - component: {fileID: 8877613000341801884}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: auraSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
