@@ -15,8 +15,10 @@ public class GameDataScript : ScriptableObject
     public KeyCode lancelotKeyCode = KeyCode.G;
     public KeyCode gauvainKeyCode = KeyCode.F;
 
-    public float volume = 1.0f;
-    public float music = 1.0f;
+    public int volume = 100;
+    public int music = 100;
+
+    public int highscore = 0;
 
     private void OnEnable()
     {
