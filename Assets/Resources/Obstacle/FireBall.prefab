@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleData: {fileID: 11400000, guid: a2f7da4c49f896f42886d3b992eaa881, type: 2}
+  bonusType: 2
   fireBallData: {fileID: 11400000, guid: 838b2799be7c2a744b65ec9dc4b5dd65, type: 2}
 --- !u!1 &4247032922598910250
 GameObject:

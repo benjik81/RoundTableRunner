@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8766569bc514ede4c821f150c86c1f2c, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  duration: 0
-  offSet: {x: 0, y: 0, z: 0}
-  projSpeed: 0
+  duration: 10
+  offSet: {x: 0, y: 0, z: 1}
+  projSpeed: 5
   armor: 0
-  delay: 0
-  swordPrefab: {fileID: 0}
+  delay: 1
+  swordPrefab: {fileID: 6366726404141390423, guid: 64c246ceaf88f1d4eaa2ce6ded61cb03, type: 3}

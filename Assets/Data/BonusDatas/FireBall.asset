@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FireBall
   m_EditorClassIdentifier: 
   fireBallPrefab: {fileID: 6366726404141390423, guid: 64c246ceaf88f1d4eaa2ce6ded61cb03, type: 3}
-  projSpeed: 2
+  projSpeed: 5
   armor: 0
   offSet: {x: 0, y: 0, z: 1}
