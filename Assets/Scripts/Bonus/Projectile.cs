@@ -31,10 +31,13 @@ public class Projectile : MonoBehaviour
         speed = s;
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "Obstacle")
         {
+            Debug.Log("something entered " + other.name);
             if (other.transform.root.TryGetComponent(out Obstacle obstacle))
             {
                 if (obstacle.obstacleData.obstacleType != ObstacleType.Bonus)

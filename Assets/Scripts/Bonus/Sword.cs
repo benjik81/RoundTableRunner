@@ -40,7 +40,6 @@ public class Sword : Bonus
 
             if (maxTimer < 0)
             {
-                knight.RemoveBonus();
                 Destroy(this.gameObject);
             }
             else
