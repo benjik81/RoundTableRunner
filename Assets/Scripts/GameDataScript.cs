@@ -16,6 +16,7 @@ public class GameDataScript : ScriptableObject
     public KeyCode gauvainKeyCode = KeyCode.F;
 
     public float volume = 1.0f;
+    public float music = 1.0f;
 
     private void OnEnable()
     {
