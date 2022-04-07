@@ -147,7 +147,7 @@ MonoBehaviour:
   destroyX: -40
   bg1: {fileID: 692779321241587981}
   bg2: {fileID: 692779321241587981}
-  bg3: {fileID: 7284861774114883813, guid: 8d855cb86af6f844bbea3209b32390a4, type: 3}
+  bg3: {fileID: 692779321241587981}
 --- !u!1 &1034888673483735559
 GameObject:
   m_ObjectHideFlags: 0
