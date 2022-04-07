@@ -139,12 +139,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 692779321241587981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db8038742d2e3141b196a9169ecc6af, type: 3}
+  m_Script: {fileID: 11500000, guid: 19e0cf20369f3c84886d63215253c1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
   spawnX: 35
-  destroyX: -50
+  destroyX: -40
   bg1: {fileID: 692779321241587981}
   bg2: {fileID: 692779321241587981}
   bg3: {fileID: 692779321241587981}

@@ -183,12 +183,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4085723266519296142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03363e1725db2d440a31e01f3f117e27, type: 3}
+  m_Script: {fileID: 11500000, guid: 21d7eb0a50124c24e893b4d99cd7915b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibleDuration: 10
-  throwingSwordDuration: 10
-  throwingSwordDelay: 2
+  currentBuff: {fileID: 0}
+  isInvincible: 0
 --- !u!95 &-8581969621453076059
 Animator:
   serializedVersion: 3

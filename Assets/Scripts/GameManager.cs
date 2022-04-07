@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
         scrollingMultiplier = 1f;
     }
 
+    public void LooseKnight()
+    {
+        Debug.Log("Vitesse augmentée");
+        scrollingMultiplier += 0.33f;
+    }
+
     private void Start()
     {
         
     }
-
-    public void LooseKnight()
-    {
-        scrollingMultiplier += 0.33f;
-    }    
 }
