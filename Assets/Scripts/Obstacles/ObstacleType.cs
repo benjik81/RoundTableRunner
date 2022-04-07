@@ -8,5 +8,6 @@ public enum ObstacleType
     GroundObject,
     FlyingObject,
     Bonus,
-    Fog
+    Fog,
+    AttackingUnit
 }

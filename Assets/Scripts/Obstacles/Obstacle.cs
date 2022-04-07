@@ -21,6 +21,8 @@ public class Obstacle : MonoBehaviour
 
     public virtual void KillObstacle()
     {
+        
+        AudioSource.PlayClipAtPoint(obstacleData.sfx, transform.position, GameManager.instance.gameData.volume / 100);
         Destroy(this.gameObject);
     }
 
