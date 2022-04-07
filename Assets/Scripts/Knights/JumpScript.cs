@@ -60,7 +60,9 @@ public class JumpScript : MonoBehaviour
     {
         stackNumber = (int)transform.position.y;
         rb = GetComponentInParent<Rigidbody>();
-        anim = GetComponentInParent<Animator>();
+        if(transform.parent.name != "Crown"){
+            anim = GetComponentInParent<Animator>();
+        }
         parent = GetComponentInParent<PlayerScript>();
     }
 
@@ -95,7 +97,7 @@ public class JumpScript : MonoBehaviour
                 return Input.GetKeyDown(gameData.gauvainKeyCode);
                 break;
             default:
-                Debug.Log("Who tf are you? " + name + "? That's pretty sus...");
+                //Debug.Log("Who tf are you? " + name + "? That's pretty sus...");
                 return false;
         }
     }
@@ -116,11 +118,13 @@ public class JumpScript : MonoBehaviour
     // 0->Idle / 1->Jump / 2->Running / 3->Hit
     private void SetAnim(float numAnim)
     {
-        // Don't play another animation if this knight is currently dying
-        if(!parent.isDying)
-        {
-            anim.SetFloat("Blend", numAnim);
-            //Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+        if(transform.parent.name != "Crown"){
+            // Don't play another animation if this knight is currently dying
+            if(!parent.isDying)
+            {
+                anim.SetFloat("Blend", numAnim);
+                //Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+            }
         }
     }
 
