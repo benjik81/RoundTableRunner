@@ -47,15 +47,25 @@ public class Spawner : MonoBehaviour
     {
         RaycastHit hit;
 
-        foreach (var item in insideObstacle)
+        try
         {
-            if (!item)
+            foreach (var item in insideObstacle)
             {
-                overlap = 0;
-                insideObstacle.Remove(item);
+                if (!item)
+                {
+                    overlap = 0;
+                    insideObstacle.Remove(item);
+                }
+
             }
+        }
+        catch (System.Exception) // throw an error if the list is empty
+        {
+
             
         }
+
+        
         
         if (CanSpawn() && timer>maxTimer) // Check if there is anything in the spawner
         {
@@ -63,8 +73,6 @@ public class Spawner : MonoBehaviour
             int randomIndex = RandomRange.Range(obstacleProbability);
             ObstacleData tempObs = allObstacles[randomIndex].GetComponent<Obstacle>().obstacleData;
             float randomFloor = Random.Range(tempObs.minFloor, tempObs.maxFloor + 1);
-
-            Debug.DrawRay(new Vector3(transform.position.x, randomFloor, transform.position.z), -Vector3.forward * maxDistance,Color.green);
 
             if (tempObs.obstacleType == ObstacleType.FlyingObject)
             {
@@ -75,9 +83,14 @@ public class Spawner : MonoBehaviour
                 maxDistance = Distance;
             }
 
+            Debug.DrawRay(new Vector3(transform.position.x, randomFloor, transform.position.z), -Vector3.forward * maxDistance,Color.green);
+
+            
+
             if (!Physics.Raycast(new Vector3(transform.position.x, randomFloor, transform.position.z), -Vector3.forward, out hit,maxDistance) || 
                 GetObstacleType(hit) == ObstacleType.Fog)
-            {// Raycast that go from the level the object is supposed to spawn to a set distance (on Z) and spawn or not the object if there is anything in the WAY
+            {// Raycast that go from the level the object is supposed to spawn to a set distance (on Z) and spawn or not the object if there is anything in the WAY. Or if it's the fog which can 
+                // spawn with objects inside
 
                 GameObject temp = Instantiate(allObstacles[randomIndex]);
 
@@ -112,7 +125,9 @@ public class Spawner : MonoBehaviour
 
     public ObstacleType GetObstacleType(RaycastHit ray)
     {
+
         return ray.collider.transform.root.GetComponent<Obstacle>().obstacleData.obstacleType;
+        
     }
 }
 

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField]
     float speed;
+    [SerializeField]
     int armor;
 
     public AudioClip sfx;
@@ -25,7 +26,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
         if (armor < 0)
@@ -46,13 +47,16 @@ public class Projectile : MonoBehaviour
 
         if (other.tag == "Obstacle")
         {
+            Debug.Log(armor);
+            armor -= 1;
             Debug.Log("something entered " + other.name);
             if (other.transform.root.TryGetComponent(out Obstacle obstacle))
             {
                 if (obstacle.obstacleData.obstacleType != ObstacleType.Bonus)
                 {
+                    
                     obstacle.KillObstacle();
-                    armor--;
+                    
                 }
             }
         }
