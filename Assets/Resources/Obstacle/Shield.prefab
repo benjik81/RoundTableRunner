@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleData: {fileID: 11400000, guid: 2d929d8a476705a4e9e6a43df4e96224, type: 2}
-  bonusType: 0
+  bonusType: 4
   bonusData: {fileID: 11400000, guid: 0ac633d623a19ba47acce4878bf86242, type: 2}
 --- !u!1 &4130616763390391043
 GameObject:
