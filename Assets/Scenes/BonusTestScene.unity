@@ -391,9 +391,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allObstacles: []
-  DistanceFlight: 35.25
-  Distance: 7.97
-  maxTimer: 1
+  overlap: 0
+  DistanceFlight: 12
+  Distance: 5
+  maxTimer: 2.27
+  insideObstacle: []
 --- !u!65 &197825134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -519,6 +521,7 @@ MonoBehaviour:
   - {fileID: 2082759487}
   - {fileID: 1559152934}
   - {fileID: 1387295732}
+  lastBuff: {fileID: 0}
   scrollingMultiplier: 1
 --- !u!1001 &1201777015
 PrefabInstance:
