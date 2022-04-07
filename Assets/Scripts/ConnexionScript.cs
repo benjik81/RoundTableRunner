@@ -16,11 +16,35 @@ public class ConnexionScript : MonoBehaviour
     void Start()
     {
         userName.text = gameData.playerName;
+        
     }
 
     public void SetName()
     {
         gameData.playerName = userName.text;
+        Save newSave = SaveSystem.LoadData();
+        if(newSave.name == gameData.playerName)
+        {
+            gameData.highscore = newSave.highScore;
+            gameData.lancelotKeyCode = (KeyCode)newSave.lancelotCode;
+            gameData.arthurKeyCode = (KeyCode)newSave.arthurCode;
+            gameData.gauvainKeyCode = (KeyCode)newSave.gauvainCode;
+            gameData.percevalKeyCode = (KeyCode)newSave.percevalCode;
+            gameData.music = newSave.bgm;
+            gameData.volume = newSave.fx;
+            gameData.score = newSave.score;
+        }
+        else
+        {
+            gameData.highscore = 0;
+            gameData.lancelotKeyCode = KeyCode.G;
+            gameData.arthurKeyCode = KeyCode.K;
+            gameData.gauvainKeyCode = KeyCode.F;
+            gameData.percevalKeyCode = KeyCode.J;
+            gameData.music = 100;
+            gameData.volume = 100;
+            gameData.score = 0;
+        }
     }
 
     public void resetName()
