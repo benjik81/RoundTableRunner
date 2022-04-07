@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LOTL
   m_EditorClassIdentifier: 
   aura: {fileID: 9159081882477724380, guid: 83031cc673ea25142931be51af574b36, type: 3}
-  auraOffSet: {x: 0, y: 0, z: 0}
+  auraOffSet: {x: 0, y: 0.5, z: -0.45}
   duration: 3
   accelerationSpeed: 2.78
