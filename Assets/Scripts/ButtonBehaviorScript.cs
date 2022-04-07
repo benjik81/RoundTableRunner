@@ -12,6 +12,8 @@ public class ButtonBehaviorScript : MonoBehaviour
     private float upScale = 1.2f;
     private float speedScale = 0.03f;
 
+    public AudioClip sfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,5 +57,10 @@ public class ButtonBehaviorScript : MonoBehaviour
     public void LoadLevel(string nomScene)
     {
         SceneManager.LoadScene(nomScene);
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.instance.PlaySound(sfx);
     }
 }
