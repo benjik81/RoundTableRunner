@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
         {
             foreach (var item in insideObstacle)
             {
-                if (!item)
+                if (item)
                 {
                     overlap = 0;
                     insideObstacle.Remove(item);
@@ -61,8 +61,8 @@ public class Spawner : MonoBehaviour
         }
         catch (System.Exception) // throw an error if the list is empty
         {
-
-            
+            overlap = 0;
+            insideObstacle.Clear();
         }
 
         
@@ -104,7 +104,9 @@ public class Spawner : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
+            Debug.Log("an obstacle entered");
             insideObstacle.Add(other.GetComponent<Obstacle>());
+            
         }
         
 
@@ -120,7 +122,7 @@ public class Spawner : MonoBehaviour
 
     bool CanSpawn()
     {
-        return overlap == 0;
+        return insideObstacle.Count == 0;
     }
 
     public ObstacleType GetObstacleType(RaycastHit ray)
