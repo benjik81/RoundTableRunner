@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aura: {fileID: 2728077100050709326, guid: 72c7862958b37a94c92fc03fa6ca5f06, type: 3}
   auraOffSet: {x: 0, y: 0.5, z: -0.45}
-  duration: 1.7
+  duration: 6

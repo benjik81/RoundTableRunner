@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aura: {fileID: 4969364244210436158, guid: 471f396317db6854f88c563ab8bc8fcd, type: 3}
   auraOffSet: {x: 0, y: 0.16, z: -0.45}
-  duration: 10
+  duration: 6
   offSet: {x: 0, y: 0, z: 1}
   projSpeed: 5
   armor: 0
-  delay: 1
+  delay: 2
   swordPrefab: {fileID: 6047000138931278475, guid: eaebe8f2ba26d8442992f988e55aec27, type: 3}
