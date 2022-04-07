@@ -26,11 +26,9 @@ public class CollisionScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Touché!");
-                    if (playerScript.currentBuff.bonusType == BonusType.Shield)
+                    if (playerScript.currentBuff && playerScript.currentBuff.bonusType == BonusType.Shield)
                     {
-
                         obstacle.KillObstacle();
-
                     }
                     //Destroy(transform.parent.gameObject);
                     playerScript.CollisionObstacle();
