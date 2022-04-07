@@ -1379,6 +1379,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1184565957}
     m_Modifications:
+    - target: {fileID: 1303797519291665602, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303797519291665602, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1303797519639358158, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1426,6 +1434,14 @@ PrefabInstance:
     - target: {fileID: 1303797519639358159, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
       propertyPath: m_Name
       value: PauseContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303797520180625709, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303797520180625709, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e9512fbb9626145841415e20bf90b5, type: 3}
