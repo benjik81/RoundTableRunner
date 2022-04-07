@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Sword : Bonus
 {
-    public SwordData swordData;
+    private SwordData swordData;
     Vector3 shootingPos;
-    PlayerScript knight;
+    
     float maxTimer;
     float maxTimertemp;
-    bool started;
+    private void Start()
+    {
+        swordData = bonusData as SwordData;
+    }
+
     public override void Effect(PlayerScript player)
     {
-        started = true;
-        knight = player;
+        base.Effect(player);
         maxTimer = swordData.duration;
         maxTimertemp = maxTimer;
 
@@ -31,6 +34,7 @@ public class Sword : Bonus
         }
         else
         {
+            aura.transform.position = knight.transform.position + bonusData.auraOffSet;
             if (maxTimer <= maxTimertemp - swordData.delay)
             {
                 maxTimertemp = maxTimer;
@@ -40,7 +44,7 @@ public class Sword : Bonus
 
             if (maxTimer < 0)
             {
-                Destroy(this.gameObject);
+                ClearBonus();
             }
             else
             {

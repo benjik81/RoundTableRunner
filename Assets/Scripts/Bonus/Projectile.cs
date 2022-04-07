@@ -7,13 +7,22 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float speed;
     int armor;
-    /*
-    private void Start()
+
+    public AudioClip sfx;
+    AudioSource sourceSfx;
+    private void Awake()
     {
-        speed = 0;
-        armor = 0;
+        if (!sourceSfx)
+        {
+            sourceSfx = gameObject.AddComponent<AudioSource>();
+        }
+
+        sourceSfx.clip = sfx;
+        sourceSfx.volume = GameManager.instance.gameData.volume / 100;
+        sourceSfx.Play();
+
+
     }
-    */
 
     // Update is called once per frame
     void Update()
@@ -31,10 +40,10 @@ public class Projectile : MonoBehaviour
         speed = s;
     }
 
-    
+
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.tag == "Obstacle")
         {
             Debug.Log("something entered " + other.name);
@@ -48,6 +57,6 @@ public class Projectile : MonoBehaviour
             }
         }
 
-       
+
     }
 }

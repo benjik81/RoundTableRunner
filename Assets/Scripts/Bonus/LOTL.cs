@@ -4,32 +4,82 @@ using UnityEngine;
 
 public class LOTL : Bonus
 {
-    public LOTLData lOTLData;
+    private LOTLData lOTLData;
     float tempValue;
+    PlayerScript[] players;
+    GameObject[] auras;
 
+    private void Start()
+    {
+        lOTLData = bonusData as LOTLData;
+    }
     public override void Effect(PlayerScript player)
     {
-        tempValue = GameManager.instance.scrollingMultiplier;
-
-        foreach (var item in GameManager.instance.knights)
+        Debug.Log("oneEffect");
+        knight = player;
+        foreach (Transform child in transform) // Removes all collider and graphics
         {
-            item.GiveInvincibility(lOTLData.duration);
+            GameObject.Destroy(child.gameObject);
+        }
+        
+        tempValue = GameManager.instance.scrollingMultiplier;
+        players = GameManager.instance.knights.ToArray();
+
+        
+        for (int i = 0; i< players.Length; i++)
+        {
+            players[i].currentBuff = this;
+            players[i].GiveInvincibility(lOTLData.duration);
+        }
+
+        if (auras == null) // if the buff has already been assigned
+        {
+            auras = new GameObject[players.Length];
+
+            for (int i = 0; i < auras.Length; i++)
+            {
+                SpawnAura(players[i]);
+                auras[i] = aura;
+            }
         }
 
         GameManager.instance.scrollingMultiplier = lOTLData.accelerationSpeed;
 
+        
+
         StartCoroutine(Countdown());
     }
 
-    
+    public override void ClearBonus()
+    {
+        foreach (var item in auras)
+        {
+            Destroy(item);
+        }
+        foreach (var item in players)
+        {
+            item.InvincibilityLost();
+        }
+        GameManager.instance.scrollingMultiplier = tempValue;
+        Destroy(this.gameObject);
+    }
+
+    public override void UpdateAfterStarted()
+    {
+        
+        for (int i = 0; i < players.Length; i++)
+        {
+            auras[i].transform.position = players[i].transform.position + bonusData.auraOffSet;
+        }
+    }
+
     private IEnumerator Countdown()
     {
         while (GameManager.instance.knights[0].isInvincible)
         {
             yield return null;
         }
-
-        GameManager.instance.scrollingMultiplier = tempValue;
-        Destroy(this.gameObject);
+        Debug.Log("finished");
+        ClearBonus();
     }
 }

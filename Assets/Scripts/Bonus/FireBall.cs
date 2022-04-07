@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class FireBall : Bonus
 {
-    public FireBallData fireBallData;
+    private FireBallData fireBallData;
     Vector3 shootingPos;
+
+
+    private void Start()
+    {
+        fireBallData = bonusData as FireBallData;
+    }
     public override void Effect(PlayerScript player)
     {
+        base.Effect(player);
         foreach (var item in GameManager.instance.knights)
         {
             shootingPos = item.gameObject.transform.position + fireBallData.offSet;
@@ -18,7 +25,14 @@ public class FireBall : Bonus
             tempProj.SetProjectile(fireBallData.projSpeed, fireBallData.armor);
         }
 
-        Destroy(this.gameObject);
         
+        
+    }
+
+    private IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("finished");
+        ClearBonus();
     }
 }

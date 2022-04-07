@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GameDataScript gameData;
+    public List<PlayerScript> knights;
 
-    public PlayerScript[] knights;
-
+    
+    public Bonus lastBuff;
 
     public float scrollingMultiplier;
 
@@ -28,4 +30,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 }

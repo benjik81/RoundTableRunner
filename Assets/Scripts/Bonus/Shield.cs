@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class Shield : Bonus
 {
-    public ShieldData shieldData;
+    private ShieldData shieldData;
+
+    private void Start()
+    {
+        shieldData = bonusData as ShieldData;
+    }
     public override void Effect(PlayerScript player)
     {
+        base.Effect(player);
         player.GiveInvincibility(shieldData.duration);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        StartCoroutine(Countdown());
     }
+
+    private IEnumerator Countdown()
+    {
+        while (knight.isInvincible)
+        {
+            yield return null;
+        }
+        Debug.Log("finished");
+        ClearBonus();
+    }
+
+
 }

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338ebcf14a9c9fe428d9c1d21e2b6a5e, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  fireBallPrefab: {fileID: 6366726404141390423, guid: 64c246ceaf88f1d4eaa2ce6ded61cb03, type: 3}
+  aura: {fileID: 9145039816853852569, guid: d1e3cd661e505224ba27cd9a2c69e218, type: 3}
+  auraOffSet: {x: 0, y: 0, z: 0}
+  fireBallPrefab: {fileID: 6047000138931278475, guid: 781ddaf4401340342b43280d0beb71ad, type: 3}
   projSpeed: 5
   armor: 0
   offSet: {x: 0, y: 0, z: 1}

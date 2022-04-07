@@ -4,8 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Shield", menuName = "ScriptableObject/BonusData/Shield")]
-public class ShieldData : ScriptableObject
+public class ShieldData : BonusData
 {
     public float duration;
-    public GameObject aura;
 }
