@@ -33,7 +33,10 @@ public class ScrollingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Scroll();
+        if(GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
+        {
+            Scroll(); 
+        }
 
         if(!nextBGSpawned)
         {
@@ -57,7 +60,7 @@ public class ScrollingScript : MonoBehaviour
     private void Scroll()
     {
         //float newX = transform.position.x - (scrollSpeed * Time.deltaTime);
-        float newX = transform.position.z - (scrollSpeed * Time.deltaTime);
+        float newX = transform.position.z - (scrollSpeed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
         //transform.position = new Vector3(newX, 3.5f, 1);
         transform.position = new Vector3(0, 0, newX);
     }

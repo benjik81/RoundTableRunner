@@ -12,7 +12,11 @@ public class Obstacle : MonoBehaviour
     public virtual void Update()
     {
 
-        transform.Translate(new Vector3(0, 0, 1) * -obstacleData.speed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
+        if(GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
+        {
+            transform.Translate(new Vector3(0, 0, 1) * -obstacleData.speed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
+        }
+        
     }
 
     public virtual void KillObstacle()

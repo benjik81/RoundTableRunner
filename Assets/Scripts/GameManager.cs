@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        scrollingMultiplier = 1;
+        scrollingMultiplier = 1f;
     }
 
     private void Start()
@@ -31,5 +31,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
+    public void LooseKnight()
+    {
+        scrollingMultiplier += 0.33f;
+    }    
 }
