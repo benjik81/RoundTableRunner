@@ -11,6 +11,7 @@ public class ButtonBehaviorScript : MonoBehaviour
     private float normalScale = 1f;
     private float upScale = 1.2f;
     private float speedScale = 0.03f;
+    [SerializeField] private GameDataScript gamedata;
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +56,10 @@ public class ButtonBehaviorScript : MonoBehaviour
     public void LoadLevel(string nomScene)
     {
         SceneManager.LoadScene(nomScene);
+    }
+
+    public void OnStart()
+    {
+        gamedata.score = 0;
     }
 }
