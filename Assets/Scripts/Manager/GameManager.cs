@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if (knights.Count == 0)
-            SceneManager.LoadScene("GameOverScene");
+            Invoke("LoadGameOver", 0.3f);
+    }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("GameOverScene");
     }
 }
