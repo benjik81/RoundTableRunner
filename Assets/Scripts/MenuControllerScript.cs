@@ -67,6 +67,7 @@ public class MenuControllerScript : MonoBehaviour
         VolumeApply();
         MusicApply();
         SetName();
+        SaveSystem.SaveData(gameData);
     }
 
     //We reset the gameData and the audio.
