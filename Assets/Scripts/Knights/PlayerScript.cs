@@ -21,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     private Animator anim;
     public bool isDying;
 
+    public AudioClip deathSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class PlayerScript : MonoBehaviour
                 anim.SetFloat("Blend", 3f);
             }
             isDying = true;
+            AudioManager.instance.PlaySound(deathSfx);
             Destroy(gameObject, 1f);
         }
         else
