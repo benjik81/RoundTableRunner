@@ -26,6 +26,7 @@ public class MenuControllerScript : MonoBehaviour
     
     public void ExitGame()
     {
+        SaveSystem.SaveData(gameData);
         Application.Quit();
     }
 
