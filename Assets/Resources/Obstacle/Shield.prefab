@@ -219,11 +219,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2684988046941781002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 462358160fdf92642809494decf864a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f88f3be8547a1d408233db962c1efcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleData: {fileID: 11400000, guid: 2d929d8a476705a4e9e6a43df4e96224, type: 2}
-  bonusType: 4
+  bonusType: 0
   bonusData: {fileID: 11400000, guid: 0ac633d623a19ba47acce4878bf86242, type: 2}
 --- !u!1 &4130616763390391043
 GameObject:
