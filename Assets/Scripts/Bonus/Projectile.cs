@@ -52,13 +52,13 @@ public class Projectile : MonoBehaviour
         if (other.tag == "Obstacle")
         {
             Debug.Log(armor);
-            armor -= 1;
+            
             Debug.Log("something entered " + other.name);
             if (other.transform.root.TryGetComponent(out Obstacle obstacle))
             {
                 if (obstacle.obstacleData.obstacleType != ObstacleType.Bonus)
                 {
-                    
+                    armor -= 1;
                     obstacle.KillObstacle();
                     
                 }
