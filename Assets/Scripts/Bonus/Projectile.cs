@@ -27,7 +27,11 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
+        if(GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
+        {
+            transform.Translate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
+        }
+        
         if (armor < 0)
         {
             Destroy(this.gameObject);
