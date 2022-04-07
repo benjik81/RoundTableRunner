@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arthur
       objectReference: {fileID: 0}
+    - target: {fileID: 6352546572633736864, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a2177555d8eeff1468a41249ee58268c, type: 3}
     - target: {fileID: 8103896999720043764, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1501,6 +1505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6941416532621804941, guid: 35d9a7e2a19bcd243bee3ff96c94544d, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 01cca48b0b0dc024885d84239682c4df, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d9a7e2a19bcd243bee3ff96c94544d, type: 3}
 --- !u!1 &1470749113
@@ -1706,6 +1714,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7926029897889670410, guid: bba445a5478d78747b4a56e1bbfa22ff, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 30ab919bfd77a7b40abad4a21391ddb7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba445a5478d78747b4a56e1bbfa22ff, type: 3}
 --- !u!1001 &1508875306
@@ -1763,6 +1775,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6969684823470698289, guid: 9fdccc28080540840997d4bb8cb12928, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 16c3a91e59bbfcb48b777e139fb02626, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fdccc28080540840997d4bb8cb12928, type: 3}
 --- !u!114 &1516777968 stripped
