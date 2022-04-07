@@ -18,15 +18,25 @@ public class PlayerScript : MonoBehaviour
     private float throwingSwordTimer = 0f;
     private float throwOneSwordTimer = 0f;
 
+    private Animator anim;
+    public bool isDying;
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        isDying = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isDying)
+        {
+            // Scroll with background
+            transform.position = new Vector3(0, transform.position.y, transform.position.z - (5 * Time.deltaTime * GameManager.instance.scrollingMultiplier));
+        }
+
         TimersIncrement();
     }
 
@@ -40,8 +50,9 @@ public class PlayerScript : MonoBehaviour
             {
                 currentBuff.ClearBonus();
             }
-            //Add choc anim
-            Destroy(gameObject);
+            isDying = true;
+            anim.SetFloat("Blend", 3f);
+            Destroy(gameObject, 1f);
         }
         else
         {

@@ -38,6 +38,7 @@ public class JumpScript : MonoBehaviour
     public int stackNumber;
 
     private CharacterController _character_controller;
+    private PlayerScript parent;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class JumpScript : MonoBehaviour
         stackNumber = (int)transform.position.y;
         rb = GetComponentInParent<Rigidbody>();
         anim = GetComponentInParent<Animator>();
+        parent = GetComponentInParent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -114,8 +116,12 @@ public class JumpScript : MonoBehaviour
     // 0->Idle / 1->Jump / 2->Running / 3->Hit
     private void SetAnim(float numAnim)
     {
-        anim.SetFloat("Blend", numAnim);
-        //Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+        // Don't play another animation if this knight is currently dying
+        if(!parent.isDying)
+        {
+            anim.SetFloat("Blend", numAnim);
+            //Debug.Log(transform.parent.name + " is now playing anim number " + numAnim);
+        }
     }
 
     void OnTriggerEnter(Collider other) 
