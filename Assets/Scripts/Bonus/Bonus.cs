@@ -24,7 +24,10 @@ public class Bonus : Obstacle
     {
         if (!started)
         {
-            transform.Translate(new Vector3(0, 0, 1) * -obstacleData.speed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
+            if(GameStateManager.Instance.CurrentGameState == GameState.Gameplay)
+            {
+                transform.Translate(new Vector3(0, 0, 1) * -obstacleData.speed * GameManager.instance.scrollingMultiplier * Time.deltaTime);
+            }
         }
         else
         {
