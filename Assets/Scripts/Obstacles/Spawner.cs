@@ -51,12 +51,11 @@ public class Spawner : MonoBehaviour
         {
             foreach (var item in insideObstacle)
             {
-                if (item)
+                if (!item)
                 {
                     overlap = 0;
                     insideObstacle.Remove(item);
                 }
-
             }
         }
         catch (System.Exception) // throw an error if the list is empty
