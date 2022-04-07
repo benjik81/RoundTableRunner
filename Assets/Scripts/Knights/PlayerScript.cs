@@ -24,7 +24,10 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        if(name != "Crown")
+        {
+            anim = GetComponent<Animator>();
+        }
         isDying = false;
     }
 
@@ -35,6 +38,11 @@ public class PlayerScript : MonoBehaviour
         {
             // Scroll with background
             transform.position = new Vector3(0, transform.position.y, transform.position.z - (5 * Time.deltaTime * GameManager.instance.scrollingMultiplier));
+            if(name == "Crown")
+            {
+                //rotate the crown as it falls
+                transform.Rotate(2, 0, 0);
+            }
         }
 
         TimersIncrement();
@@ -44,14 +52,17 @@ public class PlayerScript : MonoBehaviour
     {
         if(!isInvincible)
         {
-            GameManager.instance.knights.Remove(this);
-            GameManager.instance.LooseKnight();
             if (currentBuff)
             {
                 currentBuff.ClearBonus();
             }
+            if(name != "Crown"){
+                GameManager.instance.knights.Remove(this);
+                GameManager.instance.LooseKnight();
+                
+                anim.SetFloat("Blend", 3f);
+            }
             isDying = true;
-            anim.SetFloat("Blend", 3f);
             Destroy(gameObject, 1f);
         }
         else
