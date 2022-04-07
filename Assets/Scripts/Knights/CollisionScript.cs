@@ -9,12 +9,12 @@ public class CollisionScript : MonoBehaviour
     void Start()
     {
         playerScript = GetComponentInParent<PlayerScript>();
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Obstacle")
+        if (other.tag == "Obstacle")
         {
             if (other.transform.root.TryGetComponent(out Obstacle obstacle))
             {
@@ -26,13 +26,19 @@ public class CollisionScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Touché!");
+                    if (playerScript.currentBuff.bonusType == BonusType.Shield)
+                    {
+
+                        obstacle.KillObstacle();
+
+                    }
                     //Destroy(transform.parent.gameObject);
                     playerScript.CollisionObstacle();
                 }
             }
-            
+
         }
-        
-        
+
+
     }
 }
