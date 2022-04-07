@@ -13,7 +13,7 @@ public class AttackTrigger : MonoBehaviour
             if (tempObs.obstacleData.obstacleType == ObstacleType.AttackingUnit)
             {
                 AttackBehavior tempAttack = tempObs.GetComponentInChildren<AttackBehavior>();
-                if (!lastAttacking || tempAttack == lastAttacking)
+                if (!lastAttacking || tempAttack != lastAttacking)
                 {
                     lastAttacking = tempAttack;
                     lastAttacking.TriggerAttack();
