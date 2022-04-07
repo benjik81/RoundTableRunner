@@ -18,10 +18,10 @@ public class PlayerScript : MonoBehaviour
     private float throwingSwordTimer = 0f;
     private float throwOneSwordTimer = 0f;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -35,10 +35,12 @@ public class PlayerScript : MonoBehaviour
         if(!isInvincible)
         {
             GameManager.instance.knights.Remove(this);
+            GameManager.instance.LooseKnight();
             if (currentBuff)
             {
                 currentBuff.ClearBonus();
             }
+            //Add choc anim
             Destroy(gameObject);
         }
         else
