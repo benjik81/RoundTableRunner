@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -52,21 +53,24 @@ public class Spawner : MonoBehaviour
 
         try
         {
-            foreach (var item in insideObstacle)
+            foreach (var item in insideObstacle.ToList())
             {
                 if (!item)
                 {
-                    overlap = 0;
                     insideObstacle.Remove(item);
                 }
             }
         }
         catch (System.Exception) // throw an error if the list is empty
         {
-            overlap = 0;
-            insideObstacle.Clear();
+            
+            if (insideObstacle.Count > 0)
+            {
+                insideObstacle.Clear();
+            }
+            throw;
         }
-
+        
         
         
         if (CanSpawn() && timer> realMaxTimer && (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)) // Check if there is anything in the spawner
@@ -107,7 +111,7 @@ public class Spawner : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             Debug.Log("an obstacle entered");
-            insideObstacle.Add(other.GetComponent<Obstacle>());
+            insideObstacle.Add(other.transform.root.GetComponent<Obstacle>());
             
         }
         
@@ -118,7 +122,8 @@ public class Spawner : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            insideObstacle.Remove(other.GetComponent<Obstacle>());
+            Debug.Log("an obstacle exit");
+            insideObstacle.Remove(other.transform.root.GetComponent<Obstacle>());
         }
     }
 
