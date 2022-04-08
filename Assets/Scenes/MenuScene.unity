@@ -6839,7 +6839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Volume :'
+  m_text: 'Fx :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
   m_sharedMaterial: {fileID: 1945227725858132362, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
@@ -10586,8 +10586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 0, y: -19.3163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892059128
 MonoBehaviour:
@@ -10609,7 +10609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Valider
+  m_text: Apply
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
   m_sharedMaterial: {fileID: 1945227725858132362, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
@@ -11027,7 +11027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Musique :'
+  m_text: 'BGM :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
   m_sharedMaterial: {fileID: 1945227725858132362, guid: fad0ebc8bbedde243a4dbbb91566b78c, type: 2}
