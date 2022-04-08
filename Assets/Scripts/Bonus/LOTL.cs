@@ -21,15 +21,16 @@ public class LOTL : Bonus
         {
             GameObject.Destroy(child.gameObject);
         }
-        
+
         tempValue = GameManager.instance.scrollingMultiplier;
         players = GameManager.instance.knights.ToArray();
 
-        
-        for (int i = 0; i< players.Length; i++)
+
+        for (int i = 0; i < players.Length; i++)
         {
             players[i].currentBuff = this;
             players[i].GiveInvincibility(lOTLData.duration);
+            players[i].GetComponent<Rigidbody>().isKinematic = true;
         }
 
         if (auras == null) // if the buff has already been assigned
@@ -45,7 +46,7 @@ public class LOTL : Bonus
 
         GameManager.instance.scrollingMultiplier = lOTLData.accelerationSpeed;
 
-        
+
 
         StartCoroutine(Countdown());
     }
@@ -59,14 +60,17 @@ public class LOTL : Bonus
         foreach (var item in players)
         {
             item.InvincibilityLost();
+            item.GetComponent<Rigidbody>().isKinematic = false;
+
         }
         GameManager.instance.scrollingMultiplier = tempValue;
+
         Destroy(this.gameObject);
     }
 
     public override void UpdateAfterStarted()
     {
-        
+
         for (int i = 0; i < players.Length; i++)
         {
             auras[i].transform.position = players[i].transform.position + bonusData.auraOffSet;
