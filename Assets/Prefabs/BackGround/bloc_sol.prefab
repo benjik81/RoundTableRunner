@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
-  spawnX: 35
+  spawnX: 50
   destroyX: -40
+  xValueTriggerSpawn: 5
   bg1: {fileID: 692779321241587981}
   bg2: {fileID: 692779321241587981}
   bg3: {fileID: 692779321241587981}
