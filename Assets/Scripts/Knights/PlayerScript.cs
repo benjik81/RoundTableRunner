@@ -70,7 +70,11 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            InvincibilityLost();
+            if (currentBuff.bonusType == BonusType.Shield)
+            {
+                InvincibilityLost();
+            }
+            
         }
     }
 
