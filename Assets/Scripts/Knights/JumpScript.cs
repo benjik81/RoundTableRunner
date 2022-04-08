@@ -76,7 +76,7 @@ public class JumpScript : MonoBehaviour
             if(isJumpPressed)
             {
                 SetAnim(1f); //Anim Jump
-                Jump(8.4f);
+                Jump(7.7f);
             }
         }
     }

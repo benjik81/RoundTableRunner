@@ -11,7 +11,7 @@ public class ScrollingScript : MonoBehaviour
     //private float middleX; // x value where we trigger the spawn of the next background
     private bool nextBGSpawned = false;
 
-    private float xValueTriggerSpawn;
+    public float xValueTriggerSpawn = 20;
 
     [Header("Backgrounds")]
     public GameObject bg1;
@@ -22,7 +22,6 @@ public class ScrollingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xValueTriggerSpawn = 5;
 
         // TO DO
         // Make a GameManager to apply new scrollSpeed when we loses knights
@@ -89,6 +88,9 @@ public class ScrollingScript : MonoBehaviour
 
     private void SpawnNextBG()
     {
-        Instantiate(nextBG, new Vector3(0, 3.5f, spawnX), Quaternion.Euler(new Vector3(0, 90, 0)));
+        if(nextBG != null)
+        {
+            Instantiate(nextBG, new Vector3(0, 3.5f, spawnX + (transform.position.z - xValueTriggerSpawn)), Quaternion.Euler(new Vector3(0, 90, 0)));
+        }
     }
 }
