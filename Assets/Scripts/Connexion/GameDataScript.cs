@@ -12,8 +12,8 @@ public class GameDataScript : ScriptableObject
 
     public KeyCode arthurKeyCode = KeyCode.K;
     public KeyCode percevalKeyCode = KeyCode.J;
-    public KeyCode lancelotKeyCode = KeyCode.G;
-    public KeyCode gauvainKeyCode = KeyCode.F;
+    public KeyCode lancelotKeyCode = KeyCode.F;
+    public KeyCode gauvainKeyCode = KeyCode.D;
 
     public int volume = 100;
     public int music = 100;
