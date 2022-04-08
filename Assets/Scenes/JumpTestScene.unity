@@ -958,8 +958,8 @@ MonoBehaviour:
   allObstacles: []
   overlap: 0
   DistanceFlight: 12
-  Distance: 5
-  maxTimer: 2.27
+  Distance: 1
+  maxTimer: 1.5
   insideObstacle: []
 --- !u!65 &573880805
 BoxCollider:
@@ -1053,8 +1053,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 204614388876250039, guid: cf9607cc23bb2f1429e79d61a6f05b01, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 204614388876250039, guid: cf9607cc23bb2f1429e79d61a6f05b01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 204614388876250039, guid: cf9607cc23bb2f1429e79d61a6f05b01, type: 3}
       propertyPath: m_LocalPosition.y

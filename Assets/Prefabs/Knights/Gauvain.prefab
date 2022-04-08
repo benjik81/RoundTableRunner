@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gauvain
       objectReference: {fileID: 0}
+    - target: {fileID: 4285708546993919122, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8103896999720043764, guid: 88073289dc3fd3947872f449b4ddbb79, type: 3}
       propertyPath: m_RootOrder
       value: 0

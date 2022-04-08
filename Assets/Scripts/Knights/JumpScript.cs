@@ -69,13 +69,14 @@ public class JumpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics.gravity = new Vector3(0, -20f, 0);
         if(canJump){
             //isJumpPressed = Input.GetKeyDown(keyBind.ToString());
             isJumpPressed = GetGameDataKey();
             if(isJumpPressed)
             {
                 SetAnim(1f); //Anim Jump
-                Jump(4.5f);
+                Jump(8.4f);
             }
         }
     }

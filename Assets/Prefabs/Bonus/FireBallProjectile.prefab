@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  sfx: {fileID: 0}
+  armor: 0
+  sfx: {fileID: 8300000, guid: 9aea3b340c6d60c4f8bb07117d722ccb, type: 3}
 --- !u!54 &3496210994167399960
 Rigidbody:
   m_ObjectHideFlags: 0
