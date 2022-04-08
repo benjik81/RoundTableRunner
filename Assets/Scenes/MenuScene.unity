@@ -4130,10 +4130,10 @@ MonoBehaviour:
   volumeTextValue: {fileID: 685304231}
   volumeSlider: {fileID: 1856109347}
   confirmationPrompt: {fileID: 615414730}
-  defaultVolume: 1
+  defaultVolume: 100
   volumeBGMValue: {fileID: 406534033}
   bgmSlider: {fileID: 130563705}
-  defaultBGM: 1
+  defaultBGM: 100
 --- !u!4 &703198510
 Transform:
   m_ObjectHideFlags: 0
@@ -6240,6 +6240,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1988763283}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1179820325
 MonoBehaviour:
@@ -8711,6 +8723,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1084908166}
+        m_TargetAssemblyTypeName: RebindControlScript, Assembly-CSharp
+        m_MethodName: UpdateLetterControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1868931974}
+        m_TargetAssemblyTypeName: RebindControlScript, Assembly-CSharp
+        m_MethodName: UpdateLetterControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1153143891}
+        m_TargetAssemblyTypeName: RebindControlScript, Assembly-CSharp
+        m_MethodName: UpdateLetterControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 823250283}
+        m_TargetAssemblyTypeName: RebindControlScript, Assembly-CSharp
+        m_MethodName: UpdateLetterControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1620156339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9458,6 +9518,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MenuControllerScript, Assembly-CSharp
         m_MethodName: ModificationApply
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1988763283}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
