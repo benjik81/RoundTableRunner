@@ -35,13 +35,13 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        bgm.volume = gameData.music;
+        bgm.volume = gameData.music/100f;
     }
 
     public void PlaySound(AudioClip clip)
     {
         audioSource.clip = clip;
-        audioSource.volume = gameData.volume;
+        audioSource.volume = gameData.volume/100f;
         audioSource.PlayOneShot(clip);
     }
 }
