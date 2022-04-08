@@ -106,8 +106,8 @@ public class PauseController : MonoBehaviour
 
         gameData.arthurKeyCode = KeyCode.K;
         gameData.percevalKeyCode = KeyCode.J;
-        gameData.lancelotKeyCode = KeyCode.G;
-        gameData.gauvainKeyCode = KeyCode.F;
+        gameData.lancelotKeyCode = KeyCode.F;
+        gameData.gauvainKeyCode = KeyCode.D;
     }
 
     //When we make a "return", I erase what the player has written
