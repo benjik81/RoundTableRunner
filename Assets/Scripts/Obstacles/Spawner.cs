@@ -15,6 +15,7 @@ public class Spawner : MonoBehaviour
 
     float timer;
     public float maxTimer;
+    float realMaxTimer; // influence by scrolling
 
     [SerializeField]
     List<Obstacle> insideObstacle;
@@ -40,11 +41,13 @@ public class Spawner : MonoBehaviour
 
         overlap = 0;
         timer = 0;
+        realMaxTimer = maxTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
+        realMaxTimer = maxTimer / GameManager.instance.scrollingMultiplier;
         RaycastHit hit;
 
         try
@@ -66,7 +69,7 @@ public class Spawner : MonoBehaviour
 
         
         
-        if (CanSpawn() && timer>maxTimer && (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)) // Check if there is anything in the spawner
+        if (CanSpawn() && timer> realMaxTimer && (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)) // Check if there is anything in the spawner
         {
             timer = 0;
             int randomIndex = RandomRange.Range(obstacleProbability);
