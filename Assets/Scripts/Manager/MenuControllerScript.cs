@@ -39,7 +39,7 @@ public class MenuControllerScript : MonoBehaviour
     {
         //Here, I update the text of the slider according to the value of the bar.
         //And I update the sound volume of the game.
-        AudioListener.volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value/100f;
         volumeTextValue.text = volumeSlider.value.ToString();
     }
 
@@ -51,14 +51,14 @@ public class MenuControllerScript : MonoBehaviour
     public void VolumeApply()
     {
         //I save the player's preferences about the sound.
-        PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
+        PlayerPrefs.SetFloat("masterVolume", AudioListener.volume/100f);
         StartCoroutine(ConfirmationBox());
         gameData.volume = (int)volumeSlider.value;
     }
 
     public void MusicApply()
     {
-        PlayerPrefs.SetFloat("masterMusic", bgmSlider.value);
+        PlayerPrefs.SetFloat("masterMusic", bgmSlider.value/100f);
         StartCoroutine(ConfirmationBox());
         gameData.music = (int)bgmSlider.value;
     }
@@ -75,7 +75,7 @@ public class MenuControllerScript : MonoBehaviour
     public void ResetButton()
     {
 
-        AudioListener.volume = defaultVolume;
+        AudioListener.volume = defaultVolume/100f;
         volumeSlider.value = defaultVolume;
         volumeTextValue.text = defaultVolume.ToString();
         VolumeApply();

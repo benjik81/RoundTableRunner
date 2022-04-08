@@ -71,7 +71,7 @@ public class PauseController : MonoBehaviour
     public void VolumeApply()
     {
         //I save the player's preferences about the sound.
-        PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
+        PlayerPrefs.SetFloat("masterVolume", AudioListener.volume/100f);
         StartCoroutine(ConfirmationBox());
         gameData.volume = (int)volumeSlider.value;
     }

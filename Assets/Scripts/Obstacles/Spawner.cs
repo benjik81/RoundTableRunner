@@ -66,7 +66,7 @@ public class Spawner : MonoBehaviour
 
         
         
-        if (CanSpawn() && timer>maxTimer) // Check if there is anything in the spawner
+        if (CanSpawn() && timer>maxTimer && (GameStateManager.Instance.CurrentGameState == GameState.Gameplay)) // Check if there is anything in the spawner
         {
             timer = 0;
             int randomIndex = RandomRange.Range(obstacleProbability);
